@@ -22,9 +22,8 @@ h1,h2,h3,h4,h5,h6{
 
 h1{
 	text-align:center;
-	font-size:20px;
-	margin-top:10px;
-	margin-bottom:0px;
+	font-size:30px;
+	line-height:25px;
 }
 
 h4{
@@ -67,7 +66,7 @@ input, textarea, .text, .textarea, .select, .file {
 }
 
 .big-block {
-	padding-top:10px;
+	padding:10px;
 }
 
 .report_right, .report_left {
@@ -83,10 +82,11 @@ input, textarea, .text, .textarea, .select, .file {
 
 #reports-box {
 	width: 100%;
+	margin-bottom: 20px;
 }
 
 .rb_nav-controls {
-	height: 48px;
+	height: 70px;
 }
 
 .rb_nav-controls .link-toggle .next-page {
@@ -114,7 +114,7 @@ ul.link-toggle li a:hover.prev,
 ul.link-toggle li a:hover.next { background-color:#6e6e6e; } 
 
 .rb_nav-controls td {
-	padding:2px 10px 0 5px;
+	padding:5px 10px 0 5px;
 }
 
 #filters-box {

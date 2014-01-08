@@ -89,7 +89,7 @@ body{
 }
 
 body.page-main, body.page-reports-submit, body.page-reports {
-    background: #000;
+    background: #989898;
 }
 
 /* header nav overrides */
@@ -1496,6 +1496,7 @@ a.show-more {
 /*---big-block---*/
 .big-block {
     overflow:hidden;
+    padding:16px 25px 10px;
 }
 /* Min-Height */
 .big-block{
@@ -2108,7 +2109,7 @@ version: 1
 
 
 /* Report Box Navigation Controls (pagination, view/map toggle...etc) */
-.rb_nav-controls { background:#404040; border:0px; height:35px; color:#dedede;font-size:12px !important; }
+.rb_nav-controls { background:#404040; border:1px solid #ccc; height:35px; color:#dedede; }
 .rb_nav-controls table { height:inherit; }
 .rb_nav-controls td { border-right:1px solid #ccc; vertical-align:middle; padding:0 6px; }
 .rb_nav-controls td.last { border:none; padding:0 0 0 18px; }
@@ -2223,6 +2224,7 @@ p.labeled-divider span { position:relative; top:-8px; display:inline-block; back
     position:relative; 
     border:1px solid #c0c2b8; 
     overflow:auto; 
+    margin-bottom:10px; 
     padding:0; 
     -webkit-border-radius: 5px; 
     -moz-border-radius: 5px; 
@@ -2255,23 +2257,15 @@ span.r_cat-desc { display:none; }
 .r_cat_tooltip a { background:#282828; display:inline-block; padding:3px 8px; color:#fff; text-transform:uppercase; font-size:10px; }
 .r_cat_tooltip a:hover { text-decoration:none; color:#fff; }
     
-.r_details { float:left; width:auto; margin:3px 0; color: #fff; letter-spacing:1px;}
-
-.r_description {
-	font-size:11px;
-}
-
+.r_details { float:left; width:auto; margin:3px 0; color: #fff; }
 .r_details h3 { margin-bottom:3px;
     font-size: 18px;
-    width: 240px;
-    max-width: 240px !important;
+    border-bottom: 1px solid #fff; /*rgba(255,255,255,0.2);*/
+    width: 280px;
+    max-width: 280px !important;
 }
 /*.r_details h3 a.r_title { font-size:14px; color:#727272; }
 .hover .r_details h3 a.r_title { color:#3764AA; } */
-
-.r_title {
-	width:240px !important;
-}
 
 .r_details h3 a.r_comments {
     color:#fff; font-size:11px; 
@@ -2663,14 +2657,13 @@ a.report_link .rb_report, a.report_link .rb_report:before, a.report_link .rb_rep
 
 #rb_list-view .rb_report {
     position: relative;
-    border: 0px;
+    border: 2px solid #fff;
     overflow: hidden;
-    margin-top: 5px;
-    padding: 10px;
+    margin-bottom: 5px;
+    padding: 15px;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
-    box-sizing:border-box;
 }
 
 .rb_report a, .rb_report h3, .r_details h3 a.r_title, .hover .r_details h3 a.r_title {
@@ -2680,8 +2673,8 @@ a.report_link .rb_report, a.report_link .rb_report:before, a.report_link .rb_rep
 .r_details {
     /*float: left;*/
     position: absolute;
-    left: 122px;
-    width: 240px;
+    left: 100px;
+    width: 260px;
     margin: -3px 0 3px 0;
     /*text-shadow: 1px 1px 0 #333;*/
 }
@@ -2691,7 +2684,7 @@ a.report_link .rb_report, a.report_link .rb_report:before, a.report_link .rb_rep
 }
 
 .r_details h3, .r_details .r_description {
-    max-width:240px;
+    max-width:270px;
 }
 
 .r_date {
@@ -2718,22 +2711,19 @@ h2.report-title a:hover {
 .r_bars {
     position: absolute;
     left: 10px;
-    top: 76px;
+    top: 90px;
     color: #fff;
-    width:104px;
 }
 .r_supporters {
     margin-bottom: 5px;
-    margin-right:5px;
 }
 
 .r_supporters, .r_builds {
     /*position: absolute;*/
     /*background: url(../images/makercities-icons/heart-16px.png) no-repeat center left;*/
     position: relative;
-    width: 47px;
-    height: 28px;
-    float:left;
+    width: 80px;
+    height: 20px;
 }
 .r_builds {
     /*top: 115px;*/
@@ -2745,8 +2735,8 @@ h2.report-title a:hover {
     height: 18px;
     position: absolute;
     z-index: 9001;
-    left: 6px;
-    top: 6px;
+    left: 2px;
+    top: 1px;
     background: url(../images/makercities-icons/bar-icons.png) no-repeat top left;
 }
 
@@ -3003,12 +2993,12 @@ h2.report-title a:hover {
 #category-descriptions div.pane:before, div.rb_report:before, .report-comments .icon:before {
     content: '';
     display: block;
-    background:#fff none 4px 4px no-repeat;
+    background:#fff none 10px 10px no-repeat;
     background-size: 50px 50px;
     border-radius:100px;
-    width:56px;
-    height:56px;
-    margin:0 15px 0px 20px;
+    width:70px;
+    height:70px;
+    margin:0 15px 15px 0;
     float:left;
 }
 
@@ -3074,8 +3064,8 @@ h2.report-title a:hover {
     position: absolute;
     left: 60px;
     right: 8px;
-    height: 28px;
-    background: #000;
+    height: 20px;
+    background: #363636;
 }
 
 .future-box #support-percentage .percentage-bar, .future-box #certification-percentage .percentage-bar, .percentage-bar {
@@ -3098,14 +3088,13 @@ h2.report-title a:hover {
     content: attr(data-text);
     position: absolute;
     z-index: 101;
-    width: 25px;
-    text-align:center;
+    width: 100%;
     height: 20px;
+    border: 1px solid #363636;
+    text-align: center;
     line-height: 20px;
-    font-size: 12px;
+    font-size: 13px;
     text-shadow: 1px 1px 0 #363636;
-    margin-left:21px;
-    margin-top: 4px;
 }
 
 .percentage:before {

@@ -7,7 +7,7 @@
 			<?php else: ?>
 			<h1><?php echo Kohana::lang('ui_main.showing_futures'); ?></h1>
 		<?php endif; ?>
-
+      <hr/>
 			
 			<div id="tooltip-box">
 				<div class="tt-arrow"></div>

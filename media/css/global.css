@@ -1,20 +1,21 @@
 /* ---- Header Nav Bar ---- */
 
 #header_nav {
-	height:55px;
+	height:30px;
 	background-color: #000000;
+	border-bottom: 3px solid #FFFFFF;
 	color:#ffffff;
 	padding:0;
 	margin:0;
 	width:100%;
-	letter-spacing:2px;
-	font-weight: bold;
 }
 
 #header_nav a {
 	color:#ffffff !important;
 	text-decoration:none;
 	display:inline-block;
+	height:30px;
+	padding: 0px 10px 0px 10px;
 }
 
 #header_nav a:hover {
@@ -42,6 +43,9 @@
 
 #header_nav_left {
 	float: left;
+	height: 30px;
+	padding:0 100px;
+	margin:0;
 }
 
 #header_nav_left li {
@@ -50,11 +54,8 @@
 }
 
 #header_nav_right {
-	padding-right:22px;
-	padding-top: 5px;
+	padding:0 100px;
 	margin:0;
-	text-transform: uppercase;
-	font-size:10px;
 }
 
 #header_nav_right li {

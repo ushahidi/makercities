@@ -17,7 +17,7 @@
 function reportBoxPaginator($stats_breadcrumb, $pagination, $previous_page, $next_page) {
 	//global $stats_breadcrumb, $pagination, $previous_page, $next_page;
 	?>
-		<div class="rb_nav-controls">
+		<div class="rb_nav-controls r-5">
         <table style="width:100%;">
           <tr>
             <td colspan="3" style="text-align:center"><?php echo $stats_breadcrumb; ?></td>
@@ -41,7 +41,7 @@ function reportBoxPaginator($stats_breadcrumb, $pagination, $previous_page, $nex
 		</div>
 <?php
 }
-
+reportBoxPaginator($stats_breadcrumb, $pagination, $previous_page, $next_page);
 ?>
 		<!-- /Top reportbox section-->
 		

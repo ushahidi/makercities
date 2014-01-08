@@ -1355,6 +1355,7 @@ a.show-more {
 /*---big-block---*/
 .big-block {
     overflow:hidden;
+    padding:16px 25px 10px;
 }
 /* Min-Height */
 .big-block{
@@ -2082,6 +2083,7 @@ p.labeled-divider span { position:relative; top:-8px; display:inline-block; back
     position:relative; 
     border:1px solid #c0c2b8; 
     overflow:auto; 
+    margin-bottom:10px; 
     padding:0; 
     -webkit-border-radius: 5px; 
     -moz-border-radius: 5px; 
