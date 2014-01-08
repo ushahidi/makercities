@@ -1,11 +1,27 @@
 <div id="header_nav">
-	<ul id="header_nav_left">
-		<li><span class="bignext">&raquo;</span><a href="<?php echo url::site();?>"><?php echo $site_name; ?></a></li>
+	<div id="header_nav_left">
+		
 		<?php
 		// Action::header_nav - Add items to header nav area
 		Event::run('ushahidi_action.header_nav');
 		?>
-	</ul>
+
+		<ul id="headerNavFirstRow">
+
+			<a id="blog-link" href="#blog">Blog</a>
+         	<a id="how-to-play" href="#how-to-play"><?php echo Kohana::lang('makercities.how_to_play'); ?></a>
+			<a id="about-link" href="#about">About</a>
+		
+		</ul>
+
+		<ul id="headerNavSecondRow">
+
+			<a id="tutorial-help" href="#tutorial">Help / Tour Game</a>
+			<a id="watchintro" href="#intro"><?php echo Kohana::lang('makercities.intro_button'); ?></a>
+
+		</ul>
+
+	</div>
 
 	<?php Event::run('ushahidi_action.header_nav_bar'); ?>
 

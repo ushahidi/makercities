@@ -13,17 +13,17 @@
         <!-- logo -->
         <div id="logo">
  					<a href="<?php echo url::site();?>">
-						<img src="<?php echo url::site();?>themes/panopticon/images/makerCities_logo_small.png" alt="Maker Cities" style="" />
+						<img src="<?php echo url::site();?>themes/panopticon/images/makerCities_logo_small2.png" alt="Maker Cities" style="" />
 					</a>
-
-          <div id="tagline"><?php echo $site_tagline; ?></div>
         </div>
         <!-- / logo -->
-				<div id="game-controls">
-          <a id="tutorial-help" href="#tutorial"><?php echo Kohana::lang('makercities.tutorial_button'); ?></a>
-          <a id="how-to-play" href="#how-to-play"><?php echo Kohana::lang('makercities.how_to_play'); ?></a>
-					<a id="watchintro" href="#intro"><?php echo Kohana::lang('makercities.intro_button'); ?></a>
-				</div>
+
+        <div id="currentChallenge">
+          <div id="currentChallengeTitle">Current Challenge</div>
+          <div id="currentChallengeName">Future of Heart Health</div>
+        </div>
+        <!-- / currentChallenge -->
+
       </div>
       <!-- / header -->
           <!-- / header item for plugins -->
@@ -46,8 +46,31 @@
       <!-- / mainmenu -->
       
       <div id="panel-wrapper" class="open">
+
+        <div id="panelHeader">
+          How will <span id="panelHeaderYellow">Your</span> City <br>be a <span id="panelHeaderPink">Maker City in 2025?</span>
+        </div>
+
         <ul id="panel-tabs">
-          <li class="panel-about"><a href="#about"><?php echo Kohana::lang('makercities.tab_about'); ?></a></li><li class="panel-scoreboard"><a href="#scoreboard"><?php echo Kohana::lang('makercities.tab_scoreboard'); ?></a></li><li class="panel-pins"><a href="#pins"><?php echo Kohana::lang('makercities.tab_latest'); ?></a></li><li class="panel-submit"><a href="#submit"><?php echo Kohana::lang('makercities.tab_submit'); ?></a></li><li class="panel-info"><div id="info-x"></div><a href="#"><?php echo Kohana::lang('makercities.tab_info'); ?></a></li>
+
+        <div class="panelMenuWhiteSection">
+          <li class="panel-submit"><a href="#submit">Add Your Future</a></li>
+        
+          <div class="panelTabsRight">
+            <li class="panel-pins"><a href="#pins">All Cities</a></li>  
+            <li class="panel-details"><a href="#details">Details</a></li>  
+            <li class="panel-scoreboard"><a href="#scoreboard"><?php echo Kohana::lang('makercities.tab_scoreboard'); ?></a></li>
+          </div>
+
+          <br clear="all">
+        </div>
+
+        <div class="panelMenuBottom">
+          <li class="panel-recentFutures"><a href="#recentFutures">Recent Futures</a></li>  
+          <li class="panel-myFutures"><a href="#myFutures">My Futures</a></li> 
+          <li class="panel-topFutures"><a href="#topFutures">Top Futures</a></li> 
+        </div>
+
         </ul>
         <div id="submit-panel" class="panel">
           <iframe name="reports" src="<?php echo url::site();?>reports/submit?panel" frameborder="0" ></iframe>
@@ -57,9 +80,6 @@
         </div>
         <div id="scoreboard-panel" class="panel">
           <iframe src="<?php echo url::site();?>scoreboard" frameborder="0" ></iframe>
-        </div>
-        <div id="about-panel" class="panel">
-          <iframe src="<?php echo url::site();?>contact?panel" frameborder="0" ></iframe>
         </div>
         <div id="info-panel" class="panel">
           <iframe frameborder="0" ></iframe>
