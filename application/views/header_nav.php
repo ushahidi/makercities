@@ -8,18 +8,36 @@
 
 		<ul id="headerNavFirstRow">
 
-			<a id="blog-link" href="#blog">Blog</a>
-         	<a id="how-to-play" href="#how-to-play"><?php echo Kohana::lang('makercities.how_to_play'); ?></a>
-			<a id="about-link" href="#about">About</a>
+			<li><a id="blog-link" href="#blog">Blog</a></li></li>
+         	<li id="how-to-play"><a href="#how-to-play"><?php echo Kohana::lang('makercities.how_to_play'); ?>
+         		<ul id="headerNavSecondRow">
+	
+				<li><a id="tutorial-help" href="#tutorial">Help</a></li>
+				<li><a id="tourgame" href="#tourGame">Tour Game</a></li>
+				<li><a id="watchintro" href="#intro"><?php echo Kohana::lang('makercities.intro_button'); ?></a></li>
+	
+				</ul>
+			</a></li>
+			<li><a id="about-link" href="#about">About</a></li>
 		
 		</ul>
 
-		<ul id="headerNavSecondRow">
+		<script>
 
-			<a id="tutorial-help" href="#tutorial">Help / Tour Game</a>
-			<a id="watchintro" href="#intro"><?php echo Kohana::lang('makercities.intro_button'); ?></a>
+		//show help, tour game, and watch intro links when hovering over "how to play"
 
-		</ul>
+		var $howToPlay = $("#how-to-play");
+		var $navSecondRow = $("#headerNavSecondRow");
+
+		$howToPlay.hover(function() {
+			$navSecondRow.fadeIn("fast");
+		}, function() {
+			$navSecondRow.hide();
+		});
+
+
+
+		</script>
 
 	</div>
 

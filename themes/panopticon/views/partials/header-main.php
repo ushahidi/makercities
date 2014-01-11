@@ -57,8 +57,7 @@
           <li class="panel-submit"><a href="#submit">Add Your Future</a></li>
         
           <div class="panelTabsRight">
-            <li class="panel-pins"><a href="#pins">All Cities</a></li>  
-            <li class="panel-details"><a href="#details">Details</a></li>  
+            <li class="panel-pins"><a href="#pins">All Futures</a></li>  
             <li class="panel-scoreboard"><a href="#scoreboard"><?php echo Kohana::lang('makercities.tab_scoreboard'); ?></a></li>
           </div>
 

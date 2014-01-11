@@ -24,22 +24,30 @@ b {
 }
 
 #headerNavSecondRow {
+  position:absolute;
   font-size: 10px;
   font-weight: normal;
   margin-top:7px;
+  display:none;
 }
 
-#headerNavFirstRow a {
-  margin-right: 65px;
+#how-to-play {
+  width:244px;
+  height:35px;
+  display:inline-block !important;
+  text-align: center;
 }
 
 #headerNavFirstRow a:last-of-type {
   margin:0px;
 }
 
-#headerNavSecondRow a:first-of-type {
-  margin-right:30px;
-  margin-left:55px;
+#headerNavSecondRow li:first-of-type {
+  margin-right:12px;
+}
+
+#headerNavSecondRow li:nth-of-type(2) {
+  margin-right:12px;
 }
 
 div#header {
@@ -756,10 +764,11 @@ body.no-geolocation #myLocationZoom:hover {
 }
 
 #intro .inner {
-  margin: 50px auto 0 auto;
+  margin: 0px auto 0 auto;
   padding-bottom: 10px;
-  max-width: 700px;
+  max-width: 750px;
   max-height: 100%;
+  font-family:"Adelle Sans", sans-serif;
 }
 
 #intro .close {
@@ -799,24 +808,26 @@ body.no-geolocation #myLocationZoom:hover {
 }
 
 #intro h1 {
-  color: #989898;
-  font-family:'uni_sans_bookregular';
-  font-size: 20px;
-  text-align: center;
+  color: #000;
+  font-weight:400;
+  font-size: 48px;
+  line-height:50px;
+  text-align: left;
   margin-bottom:25px;
+  margin-top:37px;
+  width:525px;
+  margin-left: 215px;
+  margin-right:0px
 }
 
-#intro p {
-  max-width: 580px;
-  margin: 0;
-  margin-bottom:15px;
-  line-height:15pt;
+#intro h1 span {
+  font-weight: 600;
 }
 
 #intro-video {
-  width: 290px;
-  float:right;
-  margin:0px 0px 20px 20px;
+  width: 100%;
+  text-align:center;
+  margin-bottom:32px;
 }
 
 #intro .placeholder, #intro .vid {
@@ -832,21 +843,234 @@ body.no-geolocation #myLocationZoom:hover {
 
 #intro .modal {
   position: relative;
-  background: #ededed;
-  padding: 25px 30px 0 30px;
+  background-color: #e7e7e7;
+  background-image
   overflow: hidden;
   margin-bottom: 50px;
-  border:5px solid #444;
-  border-radius:5px;
-  box-shadow: 10px 10px 0 rgba(0,0,0,0.5);
+  padding-top: 1px;
 }
 
+.introModalYellowRow {
+  width:100%;
+  height:155px;
+  background-color: #ffde00;
+}
 
+.introModalText {
+  width:230px;
+  display:inline-block;
+  padding:16px 10px 0px 20px;
+  font-size:11.5px;
+  line-height:17px;
+  vertical-align: baseline;
+}
 
+.introModalYellowRow img {
+  display:inline-block;
+  position: relative;
+  top:12px;
+}
 
-#intro .modal-inner p {
-  font-size: 20px;
-  line-height:1.2em;
+.introModalInstructions {
+  display: inline-block;
+  width:340px;
+  padding:11px 0px 0px 10px;
+  font-size:17px;
+  vertical-align:top;
+}
+
+.introModalInstructions ol { counter-reset: item }
+.introModalInstructions li { display: block;line-height:28px; }
+.introModalInstructions li:before { 
+  content: counter(item) ""; 
+  counter-increment: item;
+  color: #ee0194;
+  font-weight: 700; 
+  margin-right:10px;
+}
+
+.introModaInstructionsLink {
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 600;
+  margin-top:5px;
+  display:block;
+}
+
+.introModalWeeklyChallenge {
+  width:123px;
+  background-color: #ef008b;
+  background-image: url("../images/weekly-challenge-attention.png");
+  background-repeat: no-repeat;
+  background-position: center 23px;
+  padding-top:69px;
+  height:100%;
+  display: inline-block;
+  vertical-align: top;
+  color: #fff;
+  text-transform:uppercase;
+  text-align:center;
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-font-smoothing:antialiased;
+
+  -webkit-transition: background-color 0.2s ease-out;
+     -moz-transition: background-color 0.2s ease-out;
+      -ms-transition: background-color 0.2s ease-out;
+       -o-transition: background-color 0.2s ease-out;
+          transition: background-color 0.2s ease-out;
+}
+
+.introModalWeeklyChallenge:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: #ff35ab;
+}
+
+.imwc-topRow {
+  font-size:11px;
+  margin-bottom:5px;
+  display:block;
+}
+
+.imwc-bottomRow {
+  font-size:18px;
+  line-height:26px;
+}  
+
+.introModalBottom {
+  background:#fff;
+  width:100%;
+  height:130px;
+  padding-top:1px;
+  padding-bottom: 20px;
+}
+
+.introModalCTA {
+  width:230px;
+  text-align: center;
+  margin: 30px 0px 0px 30px;
+  float:left;
+}
+
+.introModalCTA p {
+  font-size:22px;
+  line-height:23px;
+  color: #ef008b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing:1px;
+}
+
+.introModalCTA p span {
+  font-size:11px;
+}
+
+.introModalCTA a {
+  width:142px;
+  height:24px;
+  display:block;
+  line-height:25px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  background-color: #ef008b;
+  margin:10px auto 0px;
+  color: #fff;
+  text-decoration: none;
+  font-size:10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+   -webkit-transition: background-color 0.2s ease-out;
+     -moz-transition: background-color 0.2s ease-out;
+      -ms-transition: background-color 0.2s ease-out;
+       -o-transition: background-color 0.2s ease-out;
+          transition: background-color 0.2s ease-out;
+}
+
+.introModalCTA a:hover {
+  background-color: #ff35ab;
+}
+
+.introModalLoginBox {
+  width:355px;
+  float:right;
+  margin-top: 30px;
+}
+
+.introModalLoginButton {
+  width:225px;
+  height: 24px;
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  font-size:10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  line-height: 25px;
+  margin-top: 3px;
+  font-family:"Adelle Sans", sans-serif !important;
+  -webkit-font-smoothing: subpixel-antialiased !important;
+  -webkit-appearance: none !important;
+  border: 0px;
+  cursor:pointer;
+
+   -webkit-transition: background-color 0.2s ease-out;
+     -moz-transition: background-color 0.2s ease-out;
+      -ms-transition: background-color 0.2s ease-out;
+       -o-transition: background-color 0.2s ease-out;
+          transition: background-color 0.2s ease-out;
+}
+
+.introModalLoginButton:hover {
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+}
+
+.introModalLoginButton:first-of-type {
+  margin-bottom: 8px;
+  margin-top:0px;
+}
+
+.loginTextInput, .loginPasswordInput {
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  height:24px;
+  border: 2px solid black;
+  border-radius: 3px;
+    -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+  padding: 1px 0px 2px 10px;
+}
+
+.loginTextInput {
+  width:144px;
+    border-right:0px;
+}
+
+.loginPasswordInput {
+  width:86px;
+  margin-left:-5px;
+}
+
+.introModalLoginLabel {
+  font-size:9px;
+  color: #000;
+  text-decoration: none;
+  margin-left:8px;
+}
+
+#intro .introLogo {
+  float:left;
+  margin:32px 0px 0px 16px;
+}
+
+#intro .modal-inner {
+  margin-top:41px;
 }
 
 /* #intro p { display: none; } */ /* Shh */
