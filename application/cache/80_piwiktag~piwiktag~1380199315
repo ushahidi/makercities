@@ -1,8 +1,0 @@
-e7857f32c268224fdea08035fc54bc65f0db779a<script type="text/javascript">
-	setTimeout(function() {
-		var statsCollector = document.createElement('img');
-		    statsCollector.src = document.location.protocol + "//tracker.ushahidi.com/piwik/piwik.php?idsite=54960&rec=1";
-		    statsCollector.style.cssText = "width: 1px; height: 1px; opacity: 0.1;";
-		document.body.appendChild(statsCollector);
-	}, 100);
-</script>
