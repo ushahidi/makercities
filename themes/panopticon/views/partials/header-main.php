@@ -51,26 +51,40 @@
           How will <span id="panelHeaderYellow">Your</span> City <br>be a <span id="panelHeaderPink">Maker City in 2025?</span>
         </div>
 
-        <ul id="panel-tabs">
 
         <div class="panelMenuWhiteSection">
-          <li class="panel-submit"><a href="#submit">Add Your Future</a></li>
+        <ul id="panel-tabs">
+  
+            <li class="panel-submit"><a href="#submit">Add Your Future</a></li><li class="panel-pins"><a href="#pins">All Futures</a>
+  
+              <ul class="allFuturesDropdown">
+                <li class="panel-recentFutures"><a href="#recentFutures">Latest Futures</a></li>  
+                <li class="panel-myFutures"><a href="#myFutures">My Futures</a></li> 
+                <li class="panel-topFutures"><a href="#topFutures">Top Futures</a></li> 
+              </ul>
+  
+            </li><li class="panel-scoreboard"><a href="#scoreboard"><?php echo Kohana::lang('makercities.tab_scoreboard'); ?></a></li>
+  
+          </ul>
+        </div>
+
+            <script>
+
+            //show/hide dropdown
         
-          <div class="panelTabsRight">
-            <li class="panel-pins"><a href="#pins">All Futures</a></li>  
-            <li class="panel-scoreboard"><a href="#scoreboard"><?php echo Kohana::lang('makercities.tab_scoreboard'); ?></a></li>
-          </div>
+            var $allFuturesLink = $(".panel-pins");
+            var $navDropdown = $(".allFuturesDropdown");
+        
+            $allFuturesLink.hover(function() {
+              
+              $navDropdown.fadeIn("fast");
+            }, function() {
+              
+              $navDropdown.hide();
+            });
+        
+            </script>
 
-          <br clear="all">
-        </div>
-
-        <div class="panelMenuBottom">
-          <li class="panel-recentFutures"><a href="#recentFutures">Recent Futures</a></li>  
-          <li class="panel-myFutures"><a href="#myFutures">My Futures</a></li> 
-          <li class="panel-topFutures"><a href="#topFutures">Top Futures</a></li> 
-        </div>
-
-        </ul>
         <div id="submit-panel" class="panel">
           <iframe name="reports" src="<?php echo url::site();?>reports/submit?panel" frameborder="0" ></iframe>
         </div>

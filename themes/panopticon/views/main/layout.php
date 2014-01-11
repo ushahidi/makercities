@@ -1,6 +1,12 @@
-<input id="search-bar" type="text" maxlength="100" placeholder="<?php echo Kohana::lang('makercities.search_box');?>" title="<?php echo Kohana::lang('makercities.search_box');?>" />
+<input id="search-bar" type="text" maxlength="100" placeholder="Search" title="<?php echo Kohana::lang('makercities.search_box');?>" />
 <div id="myLocationZoom" title="<?php echo Kohana::lang('makercities.my_location_zoom');?>"></div>
 <div id="addingFuture" class="adding-future clearingfix"><?php echo Kohana::lang('makercities.adding_a_future'); ?></div>
+<div class="mapSearchOptions">
+  <select>
+    <option>Location</option>
+    <option>Category</option>
+  </select>
+</div>
 <div id="mapFilters" class="clearingfix">
   <!-- category filters -->
   <div class="cat-filters clearingfix">

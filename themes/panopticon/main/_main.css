@@ -231,34 +231,35 @@ div#tagline {
 
 .panelMenuWhiteSection {
   background-color:#fff;
-    padding-top: 11px;
-      height:47px;
+      height:34px;
+      position:relative;
 }
 
 #panel-tabs li {
   display: inline-block;
   margin: 0;
-  font-size:18px;
+  font-size:13px;
+  height:100%;
+  line-height:34px;
+}
+
+.allFuturesDropdown a {
+font-size:10px !important;
+}
+
+#panel-tabs li.active a {
+  color: #fff !important;
+    background-color:#ef008e;
 }
 
 #panel-tabs li a {
   color: #000;
-
+  padding:0px 8px;
 }
 
-.panel-submit a {
-  float:left;
-  padding:8px 15px 8px 21px;
-  border-right: 1px solid #5a5758;
-  vertical-align: middle;
-}
-
-.panel-pins, .panel-details, .panel-scoreboard {
-  font-size:10px !important;
-}
-
-#panel-tabs li.active a {
-  color: #ec008c !important;
+#panel-tabs li a:hover {
+  background-color:#ef008e;
+  color: #fff !important;
 }
 
 #panel-tabs li a {
@@ -278,6 +279,38 @@ div#tagline {
   vertical-align:top;
   margin-top:-4px;
   margin-left:10px;
+}
+
+#panel-tabs .allFuturesDropdown {
+  background-color: #fff;
+  width:128px;
+  position:absolute;
+  top:34px;
+  padding: 12px 0px 16px 0px;
+  height:62px;
+  z-index: 999999999999;
+  display:none;
+  border-top:1px solid #000;
+}
+
+#panel-tabs .allFuturesDropdown li a {
+  background-color: #fff !important;
+  color: #000 !important;
+  padding: 0px;
+  padding-left:10px;
+}
+
+#panel-tabs .allFuturesDropdown li a:hover {
+  color: #ef008e !important;
+}
+
+#panel-tabs .allFuturesDropdown li {
+  height:23px;
+}
+
+#panel-tabs .allFuturesDropdown li a {
+  height:23px;
+  line-height:23px;
 }
 
 .panelTabsRight li {
@@ -1328,14 +1361,43 @@ body.no-geolocation #myLocationZoom:hover {
   left: 115px;
   z-index: 1;
 
-  width: 213px;
+  width: 155px;
   height: 23px;
   /*background: url(../images/search-bar.png) no-repeat 0 0;*/
   border: 2px solid rgba(50, 50, 50, 0.5);
   outline: none !important;
   padding-left: 8px;
-
+  color: #000 !important;
   font-family:'uni_sans_bookregular';
+}
+
+.mapSearchOptions {
+  position:absolute;
+  z-index: 999999999;
+  height:23px;
+  width:100px;
+  left: 280px;
+  top: 127px;
+  text-align:right;
+  background-color: #fff;
+  border: 2px solid rgba(50, 50, 50, 0.5);
+}
+
+.mapSearchOptions select {
+  width:100%;
+  height:23px;
+  background: transparent;
+  -webkit-appearance: none;
+  line-height: 1;
+  text-align:right;
+  border: 0px;
+  padding-left:10px;
+  font-family:'uni_sans_bookregular';
+  background: url(../images/searchDropdownArrow.png) no-repeat center right;
+}
+
+.mapSearchOptions select:focus {
+  outline:0;
 }
 
 #search-bar:hover, #search-bar:focus {
