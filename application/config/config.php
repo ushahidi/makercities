@@ -96,7 +96,7 @@ $config['log_directory'] = APPPATH.'logs';
 
 if ( ! @is_writable($config["log_directory"]))
 {
-	$config["log_threshold"] = 0;
+        $config["log_threshold"] = 0;
 }
 
 /**
@@ -155,12 +155,12 @@ $config['output_scheduler_js'] = TRUE;
  */
 $config['modules'] = array
 (
-	MODPATH.'auth',         // Authentication
-	MODPATH.'csrf',         // CSRF Handling
-	// MODPATH.'forge',     // Form generation
-	// MODPATH.'formation', // Form generation
-	// MODPATH.'kodoc',     // Self-generating documentation
-	// MODPATH.'media',     // Media caching and compression
-	// MODPATH.'archive',   // Archive utility
-	// MODPATH.'unit_test', // Unit testing
+        MODPATH.'auth',         // Authentication
+        MODPATH.'csrf',         // CSRF Handling
+        // MODPATH.'forge',     // Form generation
+        // MODPATH.'formation', // Form generation
+        // MODPATH.'kodoc',     // Self-generating documentation
+        // MODPATH.'media',     // Media caching and compression
+        // MODPATH.'archive',   // Archive utility
+        // MODPATH.'unit_test', // Unit testing
 );
