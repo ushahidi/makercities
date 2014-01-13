@@ -3083,7 +3083,7 @@ h2.report-title a:hover {
     position: absolute;
     left: 0;
     width: 0;
-    height: 20px;
+    height: 28px;
     z-index: 100;
 
     -webkit-transition: width 0.2s ease-out; 
