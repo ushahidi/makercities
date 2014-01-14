@@ -58,7 +58,7 @@
             <li class="panel-submit"><a href="#submit">Add Your Future</a></li><li class="panel-pins"><a href="#pins">All Futures</a>
   
               <ul class="allFuturesDropdown">
-                <li class="panel-recentFutures"><a href="#recentFutures">Latest Futures</a></li>  
+                <li class="panel-recentFutures"><a href="#recentFutures">Recent Futures</a></li>  
                 <li class="panel-myFutures"><a href="#myFutures">My Futures</a></li> 
                 <li class="panel-topFutures"><a href="#topFutures">Top Futures</a></li> 
               </ul>
@@ -97,4 +97,13 @@
         <div id="info-panel" class="panel">
           <iframe frameborder="0" ></iframe>
         </div>
+		<div id="myFutures-panel" class="panel">
+          <iframe name="myFutures" src="<?php echo url::site();?>reports/myFutures?panel" frameborder="0" ></iframe>
+        </div>         
+		<div id="recentFutures-panel" class="panel">
+          <iframe name="recentFutures" src="<?php echo url::site();?>reports/recentFutures?panel" frameborder="0" ></iframe>
+        </div>         
+		<div id="topFutures-panel" class="panel">
+          <iframe name="topFutures" src="<?php echo url::site();?>reports/topFutures?panel" frameborder="0" ></iframe>
+        </div>        
       </div>
