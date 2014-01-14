@@ -20,7 +20,12 @@
 
         <div id="currentChallenge">
           <div id="currentChallengeTitle">Current Challenge</div>
-          <div id="currentChallengeName">Future of Heart Health</div>
+		  <?php
+			$feeds = Database::instance()
+			    ->from('feed_item')
+				->orderby('item_date', 'desc')->get()->as_array();
+			?>
+		  <div id="currentChallengeName"><?php echo $feeds[0]->item_title; ?></div>
         </div>
         <!-- / currentChallenge -->
 
