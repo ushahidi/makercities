@@ -4,7 +4,7 @@
  * then a full URL will be used, eg: http://localhost/ushahidi/. If it only includes
  * the path, and a site_protocol is specified, the domain will be auto-detected.
  */
-$config['site_domain'] = '/makercities';
+$config['site_domain'] = '/';
 
 /**
  * Force a default protocol to be used by the site. If no site_protocol is
@@ -96,7 +96,7 @@ $config['log_directory'] = APPPATH.'logs';
 
 if ( ! @is_writable($config["log_directory"]))
 {
-	$config["log_threshold"] = 0;
+        $config["log_threshold"] = 0;
 }
 
 /**
@@ -155,12 +155,12 @@ $config['output_scheduler_js'] = TRUE;
  */
 $config['modules'] = array
 (
-	MODPATH.'auth',         // Authentication
-	MODPATH.'csrf',         // CSRF Handling
-	// MODPATH.'forge',     // Form generation
-	// MODPATH.'formation', // Form generation
-	// MODPATH.'kodoc',     // Self-generating documentation
-	// MODPATH.'media',     // Media caching and compression
-	// MODPATH.'archive',   // Archive utility
-	// MODPATH.'unit_test', // Unit testing
+        MODPATH.'auth',         // Authentication
+        MODPATH.'csrf',         // CSRF Handling
+        // MODPATH.'forge',     // Form generation
+        // MODPATH.'formation', // Form generation
+        // MODPATH.'kodoc',     // Self-generating documentation
+        // MODPATH.'media',     // Media caching and compression
+        // MODPATH.'archive',   // Archive utility
+        // MODPATH.'unit_test', // Unit testing
 );

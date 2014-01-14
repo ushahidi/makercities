@@ -111,6 +111,26 @@ if ($logged_in) {
 			<p><?php echo nl2br($incident_description); ?></p>
 		</div>
 
+		<?php 
+		//upload field for make stage
+		if ($phase == 3) : ?>
+
+		<div class="description">
+
+			<h3>Make</h3>
+			<p>Create and share an image about this future - something to show how you think this future might play out! This can be a map, a drawing, a video, or something somehing a technical prototype.</p>
+
+			<div id="media-content">
+				<div class="item file">
+					<div class="upload-file"></div>
+					<button class="pm plus"></button>
+				</div>			
+			</div>
+
+		</div>
+
+		<?php endif;?>
+
 		    <?php
 		    // if there's media, show it
 		    if (
