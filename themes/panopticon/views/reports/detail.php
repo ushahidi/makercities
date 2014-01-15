@@ -117,8 +117,8 @@ if ($logged_in) {
 
 		<div class="description">
 
-			<h3>Make</h3>
-			<p>Create and share an image about this future - something to show how you think this future might play out! This can be a map, a drawing, a video, or something somehing a technical prototype.</p>
+			<h3>Make a Protoype!</h3>
+			<p>Create a prototype- a concept image, comic strip, map, video interview, arduino project, or any kind of made media or object that helps other players better understand this idea!  Host your project on Flickr, Facebook, YouTube, Vimeo, Instagram, or Instructables, and share the link here!  Submissions will be highlighted on the Maker Cities blog, on Twitter, and more.</p>
 
 			<div id="media-content">
 				<div class="item file">
