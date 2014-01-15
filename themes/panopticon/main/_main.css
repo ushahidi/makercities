@@ -693,6 +693,11 @@ div.cat-filters,div.adding-future{
 div.adding-future {
   background-image: none;
 }
+
+#addingFuture {
+  display:none !important;
+}
+
 ul.category-filters{
     background: rgba(50,50,50,0.5);
     border-top: none;
