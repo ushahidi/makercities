@@ -345,7 +345,7 @@ function reportClick(href) {
 
 	document.location.hash = href.replace(/^https?:\/\/.*?\//, '');
 
-	if (iframe.attr('src') == href + panel) return false;
+
 
 	$('#info-x, #info-panel').addClass('loading');
 	panelTab.addClass('open')

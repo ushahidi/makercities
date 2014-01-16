@@ -859,7 +859,7 @@ div.comment-block {
 	margin-top: 15px;
 	height: 32px;
 	line-height: 40px;
-	font-size: 16px;
+	font-size: 16px !important;
 }
 
 .description {
