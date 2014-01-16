@@ -8,49 +8,67 @@
         	<?php echo Kohana::lang('makercities.about.maker_cities_description'); ?>
 		</div>
 
-        <h1>About IFTF</h1>
-        <hr />
+
+        <h1>ABOUT MAKER CITIES</h1>
         <div style="text-align: justify">
-        <p><a href="http://iftf.org/" target="_blank">The Institute for the Future</a> is an independent, nonprofit strategic research group with 45 years of forecasting experience. The core of our work is identifying emerging trends and discontinuities that will transform global society and the global marketplace.</p>
-        <p>We provide our members with insights into business strategy, design process, innovation, and social dilemmas. Our research spans a broad territory of deeply transformative trends, from health and health care to technology, the workplace, and human identity.</p>
-        <p>The Institute for the Future is located in Palo Alto, California.</p>
+<p>Maker Cities is a massively multiplayer game that empowers people to imagine and make the future of their city. </p>
+
+<p>In the game, players submit ideas about how the maker movement might impact society at large: how we learn, govern, eat, and live. Players collaborate to refine each others’ ideas, and make and share simple prototypes to showcase their idea to the world.</p>
+
+<p>Unlike some conventional approaches to thinking about the future that focus only on analytical approaches, Maker Cities allows people to build future ideas together inside a game. Sometimes the best way to imagine creative responses, shift our thinking, rekindle optimism and move towards action is by gaming and having fun and Maker Cities provides a platform for this to happen.</p>
+
+<p>Every idea counts. We hope you will join us.</p>
         </div>
 
-      <div id="about">
-        <h1>Created by</h1>
-        <hr />
-        <div class="item category-maker-works">
-          <img src="<?php echo url::site();?>/themes/panopticon/images/creator-images/dean.jpg" />
-          <h4>Dean Putney</h4>
-          Project Management<br/>
-          Game Design<br/>
-          Software Development
+
+
+        <h1>ABOUT IFTF</h1>
+
+        <div style="text-align: justify">
+        <p>The <a href="http://iftf.org/" target="_blank">Institute for the Future</a> is an independent, nonprofit strategic research group with 45 years of forecasting experience. IFTF works with organizations of all kinds to help them make better, more informed decisions about the future. IFTF provides the foresight to create insights that lead to action.</p>
+        <p>We provide our members with insights into business strategy, design process, innovation, and social dilemmas. Our research spans a broad territory of deeply transformative trends, from health and health care to technology, the workplace, and human identity. The Institute for the Future is located in Palo Alto, California.</p>
         </div>
-        <div class="item category-maker-governance">
-          <img src="<?php echo url::site();?>/themes/panopticon/images/creator-images/jason.jpg" />
-          <h4>Jason Tester - IFTF</h4>
-          Game Design<br/>
-          Project Management
+
+
+
+        <h1>TERMS &amp; CONDITIONS</h1>
+
+        <div style="text-align: justify">
+
+<p><b>Public, Sharable, and Reusable</b></p>
+
+<p>Maker Cities is a public good. Everything created or contributed here is added to a public database that can be freely accessed by anyone, anywhere.</p>
+
+<p>Maker Cities operates under principles of the Creative and Science Commons. All content created in Maker Cities is automatically published under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 license.</p>
+
+<p><b>Privacy</b></p>
+
+<p>Our privacy policy is simple. We won’t share your contact or private information with anyone outside the Institute for the Future. IFTF may contact you to alert you to future games, however you are not obliged to participate in any further activity.</p>
+
+<p><b>We may quote you</b></p>
+
+<p>Anything you create on the Maker Cities platform may be quoted in whole or in part in forecasts or future reports by the Institute for the Future. Anything we quote will be attributed to your Maker Cities player name.</p>
+
+
+       
         </div>
-        <div class="item category-maker-neighborhoods">
-          <img src="<?php echo url::site();?>/themes/panopticon/images/creator-images/sq.jpg" />
-          <h4>SQ</h4>
-          Software Development<br/>
-          Design
+
+
+<h1>CREDITS</h1>
+
+        <div style="text-align: justify">
+
+<p>Maker Cities was developed by the <a href="http://iftf.org/" target="_blank">Institute for the Future</a> in collaboration with Dean Putney and SQ Sunseri.</p>
+
+
+
+       
         </div>
-        <div class="item category-maker-production">
-          <img src="<?php echo url::site();?>/themes/panopticon/images/creator-images/star.jpg" />
-          <h4>Star St. Germain</h4>
-          User Interface Design<br/>
-          Icon Design
-        </div>
-        <div class="item category-maker-bodies">
-          <img src="<?php echo url::site();?>/themes/panopticon/images/creator-images/nic.jpg" />
-          <h4>Nicolas Weidinger - IFTF</h4>
-          Icon Design<br/>
-          Game Design
-        </div>
-      </div>
+
+
+
+
+
 			<div id="contact_us" class="contact">
         		<h1>Contact Us</h1>
         		<hr />

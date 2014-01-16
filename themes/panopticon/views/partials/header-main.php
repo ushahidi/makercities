@@ -110,5 +110,9 @@
         </div>         
 		<div id="topFutures-panel" class="panel">
           <iframe name="topFutures" src="<?php echo url::site();?>reports/topFutures?panel" frameborder="0" ></iframe>
-        </div>        
+        </div>     
+
+        <div id="about-panel" class="panel">
+          <iframe src="<?php echo url::site();?>contact?panel" frameborder="0" ></iframe>
+        </div>   
       </div>
