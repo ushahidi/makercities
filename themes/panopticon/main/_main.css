@@ -166,6 +166,10 @@ div#tagline {
           transition: width 0.2s ease-out;
 }
 
+#info-panel {
+  z-index:2;
+}
+
 .panel  {
   height: calc(100% - 100px) !important;
   height: -moz-calc(100% - 100px) !important;
@@ -301,9 +305,9 @@ font-size:10px !important;
   top:34px;
   padding: 12px 0px 16px 0px;
   height:62px;
-  z-index: 1;
   display:none;
   border-top:1px solid #000;
+  z-index: 5;
 }
 
 #panel-tabs .allFuturesDropdown li a {
