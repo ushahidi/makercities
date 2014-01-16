@@ -945,6 +945,7 @@ div.comment-block {
 	margin-bottom: 3px;
 	position: relative;
 	font-size: 14pt;
+	background-color: #777 !important;
 }
 
 #all-cities a.city:hover {
