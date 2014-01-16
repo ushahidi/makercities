@@ -371,11 +371,14 @@ function reportHashClick() {
 }
 
 function closePanel() {
-	$('#panel-wrapper').removeClass('open').addClass('closed');
-	document.location.hash = 'panel-closed';
-	$('.big-map').css('width', '100%');
-	updateMapsSize();
-	$('body, #mapStatus, #mapControls, .big-map').removeClass('panel-open');
+	//
+	// not needed in redesign
+	//
+	//$('#panel-wrapper').removeClass('open').addClass('closed');
+	//document.location.hash = 'panel-closed';
+	//$('.big-map').css('width', '100%');
+	//updateMapsSize();
+	//$('body, #mapStatus, #mapControls, .big-map').removeClass('panel-open');
 }
 
 /**
