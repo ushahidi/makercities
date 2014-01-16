@@ -15,16 +15,18 @@ a:hover {
 
 h1,h2,h3,h4,h5,h6{
 	text-transform:uppercase;
-	font-family:'uni_sans_boldregular';
-	font-weight: normal;
+	font-family:'Adelle Sans', sans-serif !important;
+	font-weight: 300;
 	color:#fff;
 }
 
 h1{
-	text-align:center;
+	text-align:left;
 	font-size:20px;
 	margin-top:10px;
 	margin-bottom:0px;
+	font-weight:300;
+	padding-left:10px;
 }
 
 h4{
@@ -32,13 +34,12 @@ h4{
 }
 
 hr {
-	border: none;
-	border-bottom: 1px solid #e0e0e0;
-	margin-bottom:15px;
+	display:none;
 }
 
 p {
-	margin-bottom:15px;
+	margin-bottom:5px;
+	padding:10px;
 }
 
 input, textarea, .text, .textarea, .select, .file {
@@ -58,6 +59,7 @@ input, textarea, .text, .textarea, .select, .file {
 #reportForm input.text, #reportForm textarea, .report-findlocation, input.findtext, #category-select {
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 	width: 360px;
+	font-family: Arial;
 }
 
 #incident_title, .report-findlocation, #incident_description, #category-select, #media-select {
@@ -237,6 +239,10 @@ div.rapidxwpr, #main .left-col, #main .right-col {
 	border-bottom: 1px solid #ccc;
 }
 
+.add_media h1 {
+	font-size:16px !important;
+}
+
 #media-select {
 	width: 360px;
 }
@@ -349,7 +355,7 @@ div.rapidxwpr, #main .left-col, #main .right-col {
 #comment-tabs li.active {
 	width: 65%;
 	font-size: 36px;
-	color: #000;
+	color: #fff;
 }
 
 .comment-phases:after {
@@ -852,7 +858,8 @@ div.comment-block {
 .description h3 {
 	margin-top: 15px;
 	height: 32px;
-	line-height: 40px
+	line-height: 40px;
+	font-size: 16px;
 }
 
 .description {
@@ -977,9 +984,12 @@ body.page-members-profile .row h4 {
 
 /* Detail page */
 #main.report_detail h1 {
-	border-bottom: 1px solid #fff;
 	padding-bottom: 5px;
 	margin-bottom: 5px;
+}
+
+#main.report_detail p {
+	font-family: Arial !important;
 }
 
 #progress {

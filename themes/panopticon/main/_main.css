@@ -273,6 +273,11 @@ font-size:10px !important;
 #panel-tabs li a {
   display: block;
   margin: 0;
+  border-right: 1px solid #a8a8a8;
+}
+
+#panel-tabs li:last-of-type a, .allFuturesDropdown li a {
+    border-right: 0px !important;
 }
 
 #panel-tabs li:hover a {
