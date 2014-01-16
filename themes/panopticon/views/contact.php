@@ -2,11 +2,7 @@
 	<div class="content-bg">
 		<!-- start contacts block -->
 		<div class="big-block">
-        <h1><?php echo Kohana::lang('makercities.about.about_maker_cities'); ?></h1>
-        <hr />
-        <div style="text-align: justify">
-        	<?php echo Kohana::lang('makercities.about.maker_cities_description'); ?>
-		</div>
+
 
 
         <h1>ABOUT MAKER CITIES</h1>

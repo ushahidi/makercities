@@ -171,9 +171,9 @@ div#tagline {
 }
 
 .panel  {
-  height: calc(100% - 100px) !important;
-  height: -moz-calc(100% - 100px) !important;
-  height: -webkit-calc(100% - 100px) !important;
+  height: calc(100% - 97px) !important;
+  height: -moz-calc(100% - 97) !important;
+  height: -webkit-calc(100% - 97) !important;
 }
 
 .panel iframe {

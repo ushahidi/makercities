@@ -25,11 +25,6 @@
   <?php echo Kohana::lang('makercities.tutorial.maptools.text'); ?>
   <a href="#" class="btn next"><?php echo Kohana::lang('ui_main.next'); ?></a>
 </div>
-<div id="tutorial-mapfilter" class="tutorial arrow_box left">
-  <h3><?php echo Kohana::lang('makercities.tutorial.mapfilter.title'); ?></h3>
-  <?php echo Kohana::lang('makercities.tutorial.mapfilter.text'); ?>
-  <a href="#" class="btn next"><?php echo Kohana::lang('ui_main.next'); ?></a>
-</div>
 <div id="tutorial-leaderboard" class="tutorial arrow_box right">
   <h3><?php echo Kohana::lang('makercities.tutorial.leaderboard.title'); ?></h3>
   <?php echo Kohana::lang('makercities.tutorial.leaderboard.text'); ?>

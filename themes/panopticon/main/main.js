@@ -85,6 +85,13 @@ jQuery(document).ready(function($) {
 	} else if (hash == 'how-to-play') { // Display How To Play
 		helpModal('work');
 	}
+
+	// Show about panel on click 
+
+	$('#about-link').click(function() {
+		$('#panel-wrapper .panel').hide();
+		$("#about-panel").show();
+	});
 		
 	// Show panel on tab click
 	$('#panel-tabs li a').click(function() {
@@ -234,6 +241,10 @@ jQuery(document).ready(function($) {
 		$(this).parent().removeClass('active').addClass('closed');
 		var tut = $('.tutorial').not('.closed').first().addClass('active');
 		switch(tut.attr('id')){
+			case 'tutorial-mapfilter':
+       			$('#panel-tabs .panel-pins:not(.active) a').click();
+       			$('#mapFilters').addClass('active');
+       			break;
 			case 'tutorial-leaderboard':
 				$('#mapFilters').removeClass('active');
 				$('#panel-tabs .panel-scoreboard:not(.active) a').click();
