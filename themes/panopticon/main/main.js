@@ -133,6 +133,7 @@ jQuery(document).ready(function($) {
 		var panelInfo = $('#panel-tabs .panel-info');
 
 		panelInfo.removeClass('open').find('a').attr('href', '#').css({ display: 'none' }).click();
+		$('#info-panel').hide();
 		$('#info-panel iframe').attr('src', 'about:blank');
 		$('#panel-tabs .panel-pins a').click();
 	    document.location.hash = 'pins';
@@ -352,6 +353,8 @@ function reportClick(href) {
 	$('#panel-tabs .panel-info:not(.active) a')
 		.css({ display: 'block' })
 		.click();
+
+	$('#info-panel').css({ display: 'block' });
 
 	iframe[0].contentWindow.document.body.innerHTML = '';
 	iframe.attr('src', href + panel);

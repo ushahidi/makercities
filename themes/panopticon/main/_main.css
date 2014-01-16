@@ -1497,24 +1497,28 @@ body.no-geolocation #myLocationZoom:hover {
 }
 
 #modal .inner {
-  max-width: 500px;
-  background: #606060;
-  border-radius: 5px;
+  min-width: 500px;
+  background: #000;
   /*height: 100%;*/
   min-height: 500px; /* Let's make it a minimum of 500? */
   margin: 0 auto 15px auto;
-  padding: 5px;
-
-  box-shadow: 10px 10px 0 rgba(0,0,0,0.5);
+  padding: 1px;
 }
 
+.helpWindowTop {
+  width:100%;
+  background-image: url("../images/helpWindow-top.png");
+  height: 91px;
+}
+
+
 #modal.help .inner {
-  max-width: 550px;
+  width:798px;
 }
 
 #modal .modal {
   height: 100%;
-  background: #ededed;
+  background: #fff;
   position: relative;
 }
 
@@ -1523,9 +1527,20 @@ body.no-geolocation #myLocationZoom:hover {
 }
 
 #modal .pad {
-  margin: 0 40px;
-  padding-top: 20px;
-  min-height: 420px;
+  width:487px;
+  height:408px;
+  border-right: 1px solid #000;
+  display:inline-block;
+  font-size:14px !important;
+  font-family: "Adelle Sans", sans-serif;
+    vertical-align: top;
+}
+
+.helpWindowInfographic {
+  width:310px;
+  height:408px;
+  background-image: url("../images/helpWindow-infoGraphic.png");
+  display: inline-block;
 }
 
 #modal .modal.submit .modal-x {
@@ -1583,6 +1598,14 @@ body.no-geolocation #myLocationZoom:hover {
   color: #d7d7d7;
 }
 
+.helpWindowBottom {
+  background-color: #383838;
+  width: 100%;
+    text-align: center;
+    height:68px;
+    padding-top: 1px;
+}
+
 #modal .bottom {
   position: static;
 }
@@ -1606,11 +1629,13 @@ body.no-geolocation #myLocationZoom:hover {
 }
 
 #modal .btn {
-    margin: 20px auto;
+    margin: 0px auto;
     float: none;
     text-align: center;
-    width: 30%;
     display: block;
+    height:39px;
+    width:112px;
+    font-size: 20px;
 }
 
 #modal .city {
@@ -1630,45 +1655,63 @@ body.no-geolocation #myLocationZoom:hover {
 }
 
 #modal .modal.help .work .icon, #modal .modal.help .work .no-icon {
-  padding-left: 80px;
-  min-height: 50px;
-  margin-bottom: 10px;
+  box-sizing:border-box;
+  -moz-box-sizing: border-box;
+  height:66px;
+  border-bottom:1px solid #000;
+  padding: 13px 0px 17px 58px;
   background: none no-repeat left center transparent;
+  background-position: 9px center;
+  line-height:1.4em;
+}
+
+.work-start {
+  height:75px !important;
 }
 
 #modal .work-imagine {
-  background-image: url(../images/makercities-icons/help-imagine.png) !important;
+  background-image: url(../images/helpWindow-icon1.png) !important;
 }
 #modal .work-support {
-  background-image: url(../images/makercities-icons/help-support.png) !important;
+  background-image: url(../images/helpWindow-icon2.png) !important;
 }
 #modal .work-make {
-  background-image: url(../images/makercities-icons/help-make.png) !important;
+  background-image: url(../images/helpWindow-icon3.png) !important;
 }
 #modal .work-points {
-  background-image: url(../images/makercities-icons/help-points.png) !important;
+  background-image: url(../images/helpWindow-icon4.png) !important;
 }
 
-#modal .work-imagine b { color: #A864A8; }
-#modal .work-support b { color: #E8048A; }
-#modal .work-make b    { color: #05B158; }
-#modal .work-points b  { color: #29AAE1; }
-#modal .work-start b  { color: #FFCC05; }
+#modal .work-start {
+  background-image: url(../images/helpWindow-icon5.png) !important;
+}
+
+#modal .icon b {
+  color: #f10088;
+  text-transform: uppercase; 
+  letter-spacing: 1px;
+}
+
+#modal .icon b span {
+  color: #3a3a3b;
+}
+
 
 #helpModal-continue {
   font-family: uni_sans_boldregular;
-  font-size: 18pt;
+  font-size: 20px;
   text-transform: none;
   background: transparent;
-  color: #f0f0f0;
-  border: 5px #f0f0f0 solid;
+  color: #FFDD17;
+  border: 5px #f10088 solid;
   border-radius: 10px;
-  width: auto !important;
+  padding:0px !important;
+  margin-top: 14px !important;
 }
 
 #helpModal-continue:hover {
   background: #e8048a;
-  border-color: #333;
+  color: #fff;
 }
 
 #modal .balls {

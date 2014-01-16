@@ -12,8 +12,8 @@
          	<li id="how-to-play"><a href="#how-to-play"><?php echo Kohana::lang('makercities.how_to_play'); ?>
          		<ul id="headerNavSecondRow">
 	
-				<li><a id="tutorial-help" href="#tutorial">Help</a></li>
-				<li><a id="tourgame" href="#tourGame">Tour Game</a></li>
+				<li><a id="tutorial-help" href="#how-to-play">Help</a></li>
+				<li><a id="tourgame" href="#tutorial">Tour Game</a></li>
 				<li><a id="watchintro" href="#intro"><?php echo Kohana::lang('makercities.intro_button'); ?></a></li>
 	
 				</ul>

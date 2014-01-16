@@ -2,30 +2,23 @@
 	<div class="inner">
 
     <div class="modal help">
-      <div class="pad">
-<?php
 
-// Look up "Help" page in DB and display that, otherwise fallback to the original
-$help_page = ORM::factory('page')->where('page_tab', 'help')->find();
-if ($help_page->loaded) {
-  echo $help_page->page_description;
-} else {
-?>
+      <div class="helpWindowTop"></div><div class="pad">
          <div class="work section">
-          <h1><?php echo Kohana::lang('makercities.modal.make_the_future'); ?></h1>
 
-          <div class="icon work-imagine"><b>Imagine</b> an idea for your city in 2023 and plot it on the Maker Cities map.</div>
-          <div class="icon work-support">Other players will give you <b>constructive feedback</b> about how to make your idea happen!</div>
-          <div class="icon work-make">Once you get enough feedback, <b>MAKE</b> and share something to demonstrate your indea to get people excited about talking!</div>
-          <div class="icon work-points">Engage in <b>weekly challenges</b> about the future of transportation, health, and other exciting topics!</div>
-          <div class="no-icon work-start"><b>START</b> by exploring the map, Get inspired by ideas that other players have added!</div>
+          <div class="icon work-imagine"><b><span class="helpWindowNumber">1</span> Imagine + Add</b> Imagine an idea for your city in 2023 and add your future (idea) to the map.</div>
+          <div class="icon work-support"><b><span class="helpWindowNumber">2</span> Support</b> Other players support your future and you support others’ futures. After 2 supports, a future moves to the refine stage.</div>
+          <div class="icon work-make"><b><span class="helpWindowNumber">3</span> Refine</b> Other players refine your future and you refine others’; after 6 refinement suggestions, a future moves to the make stage.</div>
+          <div class="icon work-points"><b><span class="helpWindowNumber">4</span> Make</b> Now anyone can make a prototype (drawing, photo, video) and upload it to the game to help bring any future to life!</div>
+          <div class="icon work-start">Be sure to participate in the weekly challenges about the future of coordination, health, and more!</div>
         </div>
-<?php } ?>
-      </div>
 
-      <div class="bottom">
-        <button id="helpModal-continue" class="btn" data-continue="<?php echo Kohana::lang('makercities.modal.submit_title'); ?>"><?php echo Kohana::lang('makercities.modal.submit_title'); ?></button>
+
+      <div class="helpWindowBottom">
+        <button id="helpModal-continue" class="btn" data-continue="Play Now">Play Now</button>
       </div>
+      </div><div class="helpWindowInfographic"></div>
+
     </div><!-- /.modal.help  -->
 
 		<div class="modal submit">
