@@ -236,7 +236,7 @@ div.rapidxwpr, #main .left-col, #main .right-col {
 }
 
 .add_media {
-	border-bottom: 1px solid #ccc;
+	padding-left: 0px !important;
 }
 
 .add_media h1 {
@@ -732,6 +732,7 @@ div.comment-block {
 .description h3, #comments h3, .media h3 {
 	border-bottom: 1px solid #e0e0e0;
 	margin-bottom: 8px;
+	font-size:16px !important;
 }
 
 .future-box {
@@ -995,7 +996,6 @@ body.page-members-profile .row h4 {
 #progress {
 	position: relative;
 	height: 140px;
-	background: transparent url(images/progress-arrows.png) top left no-repeat;
 	margin-top: 20px;
 }
 
@@ -1018,7 +1018,7 @@ body.page-members-profile .row h4 {
 }
 
 #progress .progress-circle.level2 {
-	left: 140px;
+	left: 120px;
 }
 
 #progress .progress-circle.level3 {
@@ -1084,7 +1084,7 @@ body.page-members-profile .row h4 {
 
 #phase-tooltips .arrow_box {
 	display: block;
-	width: 340px;
+	width: 300px;
 	height: 65px;
 }
 
