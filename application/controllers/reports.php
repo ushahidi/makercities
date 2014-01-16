@@ -1564,7 +1564,7 @@ class Reports_Controller extends Main_Controller {
 	public function topFutures()
 	{
 		// Cacheable Controller
-		$this->is_cachable = TRUE;
+		//$this->is_cachable = TRUE;
 
 		$this->template->header->this_page = 'reports';
 		$this->template->content = new View('reports/main');
@@ -1701,7 +1701,7 @@ class Reports_Controller extends Main_Controller {
 	public function recentFutures($location = FALSE)
 	{
 		// Cacheable Controller
-		$this->is_cachable = TRUE;
+		//$this->is_cachable = TRUE;
 
 		$this->template->header->this_page = 'reports';
 		$this->template->content = new View('reports/main');
@@ -1743,10 +1743,20 @@ class Reports_Controller extends Main_Controller {
 		// Get locale
 		$l = Kohana::config('locale.language.0');
 		
-		$query = "SELECT i.id as incident_id, i.*, l.location_name "
+		$query = "SELECT DISTINCT i.id incident_id, i.city_id, i.incident_title, i.incident_description, " 
+		."i.incident_date, i.incident_mode, i.incident_active, i.incident_verified, " 
+		."i.location_id, i.incident_phase, i.incident_stats, l.country_id, " 
+		."l.location_name, l.latitude, l.longitude, " 
+		."c.id as category_id, c.category_color, c.category_image, c.category_image_thumb "
 		."FROM incident i "
-		."RIGHT JOIN location l on l.id = i.location_id "
-		."ORDER BY incident_date DESC ";
+		."LEFT JOIN location l ON (i.location_id = l.id) "
+		."LEFT JOIN incident_category ic ON (ic.incident_id = i.id) "
+		."LEFT JOIN category c ON (ic.category_id = c.id) "
+		."WHERE i.incident_active = 1 "
+		."ORDER BY i.incident_date DESC"; 
+		//."ORDER BY i.incident_date DESC LIMIT 0, ".intval(Kohana::config('settings.items_per_page')); 
+			
+		//TODO filter by $location once that logic is determined
 			
 		$recentFuturesIncidents = Database::instance()->query($query);
 		
@@ -1836,161 +1846,164 @@ class Reports_Controller extends Main_Controller {
 	
 	public function myFutures()
 	{
-				
+
+		// Cacheable Controller
+		//$this->is_cachable = TRUE;
+
+		$this->template->header->this_page = 'reports';
+		$this->template->content = new View('reports/main');
+		$this->themes->js = new View('reports/reports_js');
+
+		$this->template->header->page_title .= Kohana::lang('ui_main.reports').Kohana::config('settings.title_delimiter');
+
+		// Store any exisitng URL parameters
+		$this->themes->js->url_params = json_encode($_GET);
+
+		// Enable the map
+		$this->themes->map_enabled = TRUE;
+
+		// Set the latitude and longitude
+		$this->themes->js->latitude = Kohana::config('settings.default_lat');
+		$this->themes->js->longitude = Kohana::config('settings.default_lon');
+		$this->themes->js->default_map = Kohana::config('settings.default_map');
+		$this->themes->js->default_zoom = Kohana::config('settings.default_zoom');
+
+		// Get Default Color
+		$this->themes->js->default_map_all = $this->template->content->default_map_all = Kohana::config('settings.default_map_all');
+		
+		// Get default icon
+		$this->themes->js->default_map_all_icon = $this->template->content->default_map_all_icon = '';
+		if (Kohana::config('settings.default_map_all_icon_id'))
+		{
+			$icon_object = ORM::factory('media')->find(Kohana::config('settings.default_map_all_icon_id'));
+			$this->themes->js->default_map_all_icon = $this->template->content->default_map_all_icon = Kohana::config('upload.relative_directory')."/".$icon_object->media_thumb;
+		}
+
+		// Load the alert radius view
+		$alert_radius_view = new View('alerts/radius');
+		$alert_radius_view->show_usage_info = FALSE;
+		$alert_radius_view->enable_find_location = FALSE;
+		$alert_radius_view->css_class = "rb_location-radius";
+
+		$this->template->content->alert_radius_view = $alert_radius_view;
+
+		// Get locale
+		$l = Kohana::config('locale.language.0');
+		
+		//$query = "SELECT i.id as incident_id, i.*, l.location_name " 
+		//."FROM incident i "
+		//."RIGHT JOIN location l on l.id = i.location_id "
+		//."WHERE i.user_id =".$logged_in_id." "
+		//."WHERE i.user_id =44 "
+		//."ORDER BY incident_date DESC";
+		
+		$logged_in_id = 0;
+		
 		if(isset(Auth::instance()->get_user()->id))
 		{
 			$logged_in_id = Auth::instance()->get_user()->id;
+									
+		}
+					
+		$query = "select distinct * from(
+		SELECT i.id as incident_id,i.*, l.location_name  
+		FROM incident i
+		LEFT JOIN location l on (l.id = i.location_id)
+		WHERE i.user_id =".$logged_in_id." 
+		union
+		SELECT i.id as incident_id, i.*, l.location_name  
+		FROM incident i
+		INNER JOIN comment c ON (c.incident_id = i.id)
+		LEFT JOIN location l on (l.id = i.location_id)
+		WHERE c.user_id =".$logged_in_id." 
+		) as t";
 			
-			// Cacheable Controller
-			$this->is_cachable = TRUE;
-	
-			$this->template->header->this_page = 'reports';
-			$this->template->content = new View('reports/main');
-			$this->themes->js = new View('reports/reports_js');
-	
-			$this->template->header->page_title .= Kohana::lang('ui_main.reports').Kohana::config('settings.title_delimiter');
-	
-			// Store any exisitng URL parameters
-			$this->themes->js->url_params = json_encode($_GET);
-	
-			// Enable the map
-			$this->themes->map_enabled = TRUE;
-	
-			// Set the latitude and longitude
-			$this->themes->js->latitude = Kohana::config('settings.default_lat');
-			$this->themes->js->longitude = Kohana::config('settings.default_lon');
-			$this->themes->js->default_map = Kohana::config('settings.default_map');
-			$this->themes->js->default_zoom = Kohana::config('settings.default_zoom');
-	
-			// Get Default Color
-			$this->themes->js->default_map_all = $this->template->content->default_map_all = Kohana::config('settings.default_map_all');
+		//echo $query;
 			
-			// Get default icon
-			$this->themes->js->default_map_all_icon = $this->template->content->default_map_all_icon = '';
-			if (Kohana::config('settings.default_map_all_icon_id'))
-			{
-				$icon_object = ORM::factory('media')->find(Kohana::config('settings.default_map_all_icon_id'));
-				$this->themes->js->default_map_all_icon = $this->template->content->default_map_all_icon = Kohana::config('upload.relative_directory')."/".$icon_object->media_thumb;
-			}
-	
-			// Load the alert radius view
-			$alert_radius_view = new View('alerts/radius');
-			$alert_radius_view->show_usage_info = FALSE;
-			$alert_radius_view->enable_find_location = FALSE;
-			$alert_radius_view->css_class = "rb_location-radius";
-	
-			$this->template->content->alert_radius_view = $alert_radius_view;
-	
-			// Get locale
-			$l = Kohana::config('locale.language.0');
+		$myFuturesIncidents = Database::instance()->query($query);
+		
+		//echo $myFuturesIncidents->count();		
+		//echo intval(Kohana::config('settings.items_per_page'));
 			
-			//$query = "SELECT i.id as incident_id, i.*, l.location_name " 
-			//."FROM incident i "
-			//."RIGHT JOIN location l on l.id = i.location_id "
-			//."WHERE i.user_id =".$logged_in_id." "
-			//."WHERE i.user_id =44 "
-			//."ORDER BY incident_date DESC";
-			
-			$query = "select distinct * from(
-			SELECT i.id as incident_id,i.*, l.location_name  
-			FROM incident i
-			LEFT JOIN location l on (l.id = i.location_id)
-			WHERE i.user_id =".$logged_in_id." 
-			union
-			SELECT i.id as incident_id, i.*, l.location_name  
-			FROM incident i
-			INNER JOIN comment c ON (c.incident_id = i.id)
-			LEFT JOIN location l on (l.id = i.location_id)
-			WHERE c.user_id =".$logged_in_id." 
-			) as t";
-				
-			//echo $query;
-				
-			$myFuturesIncidents = Database::instance()->query($query);
-			
-			echo $myFuturesIncidents->count();		
-			//echo intval(Kohana::config('settings.items_per_page'));
-				
-			$pagination = new Pagination(array(
-					'style' => 'front-end-reports',
-					'query_string' => 'page',
-					'items_per_page' => intval(Kohana::config('settings.items_per_page')),
-					'total_items' => $myFuturesIncidents->count()
-				));
-							
-			// Get the report listing view
-			$report_listing_view = $this->_get_futures_listing_view('', $myFuturesIncidents, $pagination);
-	
-			// Set the view
-			$this->template->content->report_listing_view = $report_listing_view;
-	
-			// Load the category
-			$category_id = (isset($_GET['c']) AND intval($_GET['c']) > 0)? intval($_GET['c']) : 0;
-			$category = ORM::factory('category', $category_id);
-	
-			if ($category->loaded)
-			{
-				// Set the category title
-				$this->template->content->category_title = Category_Lang_Model::category_title($category_id,$l);
-			}
-			else
-			{
-				$this->template->content->category_title = "";
-			}
-	
-			// Collect report stats
-			$this->template->content->report_stats = new View('reports/stats');
-			
-			// Total Reports
-			$total_reports = Incident_Model::get_total_reports(TRUE);
-	
-			// Get the date of the oldest report
-			if (isset($_GET['s']) AND !empty($_GET['s']) AND intval($_GET['s']) > 0)
-			{
-				$oldest_timestamp =  intval($_GET['s']);
-			}
-			else
-			{
-				$oldest_timestamp = Incident_Model::get_oldest_report_timestamp();
-			}
-	
-			// Get the date of the latest report
-			if (isset($_GET['e']) AND !empty($_GET['e']) AND intval($_GET['e']) > 0)
-			{
-				$latest_timestamp = intval($_GET['e']);
-			}
-			else
-			{
-				$latest_timestamp = Incident_Model::get_latest_report_timestamp();
-			}
-	
-			// Round the number of days up to the nearest full day
-			$days_since = ceil((time() - $oldest_timestamp) / 86400);
-			$avg_reports_per_day = ($days_since < 1)? $total_reports : round(($total_reports / $days_since),2);
-	
-			// Percent Verified
-			$total_verified = Incident_Model::get_total_reports_by_verified(TRUE);
-			$percent_verified = ($total_reports == 0) ? '-' : round((($total_verified / $total_reports) * 100),2).'%';
-	
-			// Category tree view
-			$this->template->content->category_tree_view = category::get_category_tree_view();
-	
-			// Additional view content
-			$this->template->content->custom_forms_filter = new View('reports/submit_custom_forms');
-			$this->template->content->custom_forms_filter->disp_custom_fields = customforms::get_custom_form_fields();
-			$this->template->content->custom_forms_filter->search_form = TRUE;
-			$this->template->content->oldest_timestamp = $oldest_timestamp;
-			$this->template->content->latest_timestamp = $latest_timestamp;
-			$this->template->content->report_stats->total_reports = $total_reports;
-			$this->template->content->report_stats->avg_reports_per_day = $avg_reports_per_day;
-			$this->template->content->report_stats->percent_verified = $percent_verified;
-			$this->template->content->services = Service_Model::get_array();
-			//$this->template->content->total_reports = reports::$pagination->total_items;
-			$this->template->content->total_reports = $pagination->total_items;		
-	
-			$this->template->header->header_block = $this->themes->header_block();
-			$this->template->footer->footer_block = $this->themes->footer_block();
+		$pagination = new Pagination(array(
+				'style' => 'front-end-reports',
+				'query_string' => 'page',
+				'items_per_page' => intval(Kohana::config('settings.items_per_page')),
+				'total_items' => $myFuturesIncidents->count()
+			));
 						
-		}		
+		// Get the report listing view
+		$report_listing_view = $this->_get_futures_listing_view('', $myFuturesIncidents, $pagination);
+
+		// Set the view
+		$this->template->content->report_listing_view = $report_listing_view;
+
+		// Load the category
+		$category_id = (isset($_GET['c']) AND intval($_GET['c']) > 0)? intval($_GET['c']) : 0;
+		$category = ORM::factory('category', $category_id);
+
+		if ($category->loaded)
+		{
+			// Set the category title
+			$this->template->content->category_title = Category_Lang_Model::category_title($category_id,$l);
+		}
+		else
+		{
+			$this->template->content->category_title = "";
+		}
+
+		// Collect report stats
+		$this->template->content->report_stats = new View('reports/stats');
+		
+		// Total Reports
+		$total_reports = Incident_Model::get_total_reports(TRUE);
+
+		// Get the date of the oldest report
+		if (isset($_GET['s']) AND !empty($_GET['s']) AND intval($_GET['s']) > 0)
+		{
+			$oldest_timestamp =  intval($_GET['s']);
+		}
+		else
+		{
+			$oldest_timestamp = Incident_Model::get_oldest_report_timestamp();
+		}
+
+		// Get the date of the latest report
+		if (isset($_GET['e']) AND !empty($_GET['e']) AND intval($_GET['e']) > 0)
+		{
+			$latest_timestamp = intval($_GET['e']);
+		}
+		else
+		{
+			$latest_timestamp = Incident_Model::get_latest_report_timestamp();
+		}
+
+		// Round the number of days up to the nearest full day
+		$days_since = ceil((time() - $oldest_timestamp) / 86400);
+		$avg_reports_per_day = ($days_since < 1)? $total_reports : round(($total_reports / $days_since),2);
+
+		// Percent Verified
+		$total_verified = Incident_Model::get_total_reports_by_verified(TRUE);
+		$percent_verified = ($total_reports == 0) ? '-' : round((($total_verified / $total_reports) * 100),2).'%';
+
+		// Category tree view
+		$this->template->content->category_tree_view = category::get_category_tree_view();
+
+		// Additional view content
+		$this->template->content->custom_forms_filter = new View('reports/submit_custom_forms');
+		$this->template->content->custom_forms_filter->disp_custom_fields = customforms::get_custom_form_fields();
+		$this->template->content->custom_forms_filter->search_form = TRUE;
+		$this->template->content->oldest_timestamp = $oldest_timestamp;
+		$this->template->content->latest_timestamp = $latest_timestamp;
+		$this->template->content->report_stats->total_reports = $total_reports;
+		$this->template->content->report_stats->avg_reports_per_day = $avg_reports_per_day;
+		$this->template->content->report_stats->percent_verified = $percent_verified;
+		$this->template->content->services = Service_Model::get_array();
+		//$this->template->content->total_reports = reports::$pagination->total_items;
+		$this->template->content->total_reports = $pagination->total_items;		
+
+		$this->template->header->header_block = $this->themes->header_block();
+		$this->template->footer->footer_block = $this->themes->footer_block();
+					
 	}
 }

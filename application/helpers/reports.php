@@ -1022,9 +1022,14 @@ class reports_Core {
 			$comments = Incident_Model::get_comments($incident_id);
 			$build_count = count($comments);
 			$comment_count = Array(0,0,0,0);
-			foreach ($comments as $com) {
-				$comment_count[$com->comment_phase]++;
-			}
+			
+			if (is_array($comments))
+			{
+				foreach ($comments as $com) {
+					$comment_count[$com->comment_phase]++;
+				}
+			}	
+			
 			$certified_count = $comment_count[1] + $comment_count[2] + $comment_count[3];
 			$certified_threshold = Kohana::config('settings.certified_threshold');
 			$certified_percent = floor($certified_count / $certified_threshold * 100);
