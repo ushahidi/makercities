@@ -255,7 +255,14 @@ if ($logged_in) {
 			if ($proposal_allowed) $comment_class_names[] = 'proposal-allowed';
 			if ($active_allowed) $comment_class_names[] = 'active-allowed';
 			$comment_class_names = (count($comment_class_names) > 0) ? ' class="' . implode(' ', $comment_class_names) . '"' : '';
+		
+			if($proposal_allowed) :
 		?>
+
+	<div id="report_row"><p style="color: #fff800;">Please log in to support this future!</p></div>
+
+		<?php else : ?>
+
 		<div id="comments"<?php echo $comment_class_names; ?>>
 			<h3><?php echo $comments_header; ?><!-- <a href="javascript:void(0);" id="builds-tutorial-link">(?)</a>--></h3>
 			<!-- <div class="builds-tutorial arrow_box top"><?php echo Kohana::lang('ui_main.builds_tutorial'); ?></div> -->
@@ -275,5 +282,6 @@ if ($logged_in) {
 		?>
 
 		</div>
+				<?php endif; ?>
 
 </div>
