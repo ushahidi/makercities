@@ -71,7 +71,12 @@ if ($logged_in) {
 		<div class="proposal-tooltip arrow_box bottom"><div class="tooltip-x"></div>If this future intrigues you, click the heart in the circle below to SUPPORT it and help it move on to the REFINE stage!</div>
 	<?php elseif ($phase == 2) : ?>
 		<div class="active-tooltip arrow_box bottom"><div class="tooltip-x"></div><?php echo Kohana::lang('makercities.phases.active_tooltip'); ?></div>
+	<?php elseif ($phase == 3) : ?>
+		<div class="active-tooltip arrow_box bottom"><div class="tooltip-x"></div>Create a prototype - a concept image, comic strip, map, video interview, Arduino project, or any kind of made media or object that helps other players better understand this idea!</div>
+
 	<?php endif; ?>
+
+
 	</div>
 	<?php endif; ?>
 
@@ -112,6 +117,10 @@ if ($logged_in) {
 		</div>
 	</div>
 	<?php endif; ?>
+
+<div class="clearingfix"></div>
+
+	<br>
 
 	<!-- start report description -->
 			<div class="report-description-text">
@@ -246,7 +255,14 @@ if ($logged_in) {
 			if ($proposal_allowed) $comment_class_names[] = 'proposal-allowed';
 			if ($active_allowed) $comment_class_names[] = 'active-allowed';
 			$comment_class_names = (count($comment_class_names) > 0) ? ' class="' . implode(' ', $comment_class_names) . '"' : '';
+		
+			if($proposal_allowed) :
 		?>
+
+	<div id="report_row"><p style="color: #fff800;">Please log in to support this future!</p></div>
+
+		<?php else : ?>
+
 		<div id="comments"<?php echo $comment_class_names; ?>>
 			<h3><?php echo $comments_header; ?><!-- <a href="javascript:void(0);" id="builds-tutorial-link">(?)</a>--></h3>
 			<!-- <div class="builds-tutorial arrow_box top"><?php echo Kohana::lang('ui_main.builds_tutorial'); ?></div> -->
@@ -266,5 +282,6 @@ if ($logged_in) {
 		?>
 
 		</div>
+				<?php endif; ?>
 
 </div>

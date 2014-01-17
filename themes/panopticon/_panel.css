@@ -912,7 +912,6 @@ div.comment-block {
 	margin: 0 5px 0 0;
 	color: transparent;
 	overflow: hidden;
-	background-color: #888;
 	background-image: url(images/makercities-icons/social-30px.png) !important;
 }
 
@@ -994,10 +993,12 @@ body.page-members-profile .row h4 {
 #main.report_detail h1 {
 	padding-bottom: 5px;
 	margin-bottom: 5px;
+	padding-left:0px !important;
 }
 
 #main.report_detail p {
 	font-family: Arial !important;
+		padding-left:0px !important;
 }
 
 #progress {
