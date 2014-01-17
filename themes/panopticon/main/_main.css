@@ -1436,6 +1436,22 @@ body.no-geolocation #myLocationZoom:hover {
   outline:0;
 }
 
+.mapSearchButton {
+  width:27px;
+  height:27px;
+  background: url('../images/searchIcon.png');
+  position:absolute;
+  z-index: 1;
+  left: 385px;
+  top: 127px;
+  border:0px;
+  -webkit-appearance: none;
+}
+
+.mapSearchButton:hover {
+  opacity:0.8;
+}
+
 #search-bar:hover, #search-bar:focus {
   background-position: 0 -38px;
   border-color:rgb(236,0,139);

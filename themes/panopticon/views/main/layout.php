@@ -7,6 +7,9 @@
     <option>Keyword</option>
   </select>
 </div>
+
+  <button class="mapSearchButton"></button>
+
 <div id="mapFilters" class="clearingfix">
   <!-- category filters -->
   <div class="cat-filters clearingfix">
