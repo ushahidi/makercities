@@ -71,7 +71,12 @@ if ($logged_in) {
 		<div class="proposal-tooltip arrow_box bottom"><div class="tooltip-x"></div>If this future intrigues you, click the heart in the circle below to SUPPORT it and help it move on to the REFINE stage!</div>
 	<?php elseif ($phase == 2) : ?>
 		<div class="active-tooltip arrow_box bottom"><div class="tooltip-x"></div><?php echo Kohana::lang('makercities.phases.active_tooltip'); ?></div>
+	<?php elseif ($phase == 3) : ?>
+		<div class="active-tooltip arrow_box bottom"><div class="tooltip-x"></div>Create a prototype - a concept image, comic strip, map, video interview, Arduino project, or any kind of made media or object that helps other players better understand this idea!</div>
+
 	<?php endif; ?>
+
+
 	</div>
 	<?php endif; ?>
 
@@ -112,6 +117,10 @@ if ($logged_in) {
 		</div>
 	</div>
 	<?php endif; ?>
+
+<div class="clearingfix"></div>
+
+	<br>
 
 	<!-- start report description -->
 			<div class="report-description-text">
