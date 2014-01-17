@@ -162,8 +162,9 @@ jQuery(document).ready(function($) {
 
 	// Intro modal
 	$('#intro').hide();
-	$('#intro, #modal-x').click(function() {
+	$('#intro #modal-x').click(function() {
 		$('#intro').fadeOut('fast');
+		$('#intro').hide();
 		$.cookie('hide_intro', '1', { expires: 1000 });
 		document.location.hash = '';
 	});
