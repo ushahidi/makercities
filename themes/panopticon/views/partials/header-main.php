@@ -25,7 +25,7 @@
 			    ->from('feed_item')
 				->orderby('item_date', 'desc')->get()->as_array();
 			?>
-		  <div id="currentChallengeName"><?php echo empty($feeds) ? "Future of Health" : $feeds[0]->item_title; ?></div>		  
+		  <div id="currentChallengeName"><a href="http://blog.makercities.net/synchronicity-challenge/">SynchroniCity</a></div>			  
         </div>
         <!-- / currentChallenge -->
 

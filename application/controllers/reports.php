@@ -1698,7 +1698,7 @@ class Reports_Controller extends Main_Controller {
 		$this->template->footer->footer_block = $this->themes->footer_block();
 	}
 
-	public function recentFutures($location = FALSE)
+	public function recentFutures($latitude = FALSE, $longitude = FALSE)
 	{
 		// Cacheable Controller
 		//$this->is_cachable = TRUE;
@@ -1752,11 +1752,17 @@ class Reports_Controller extends Main_Controller {
 		."LEFT JOIN location l ON (i.location_id = l.id) "
 		."LEFT JOIN incident_category ic ON (ic.incident_id = i.id) "
 		."LEFT JOIN category c ON (ic.category_id = c.id) "
-		."WHERE i.incident_active = 1 "
-		."ORDER BY i.incident_date DESC"; 
+		."WHERE i.incident_active = 1 ";
+
 		//."ORDER BY i.incident_date DESC LIMIT 0, ".intval(Kohana::config('settings.items_per_page')); 
 			
 		//TODO filter by $location once that logic is determined
+		if ($latitude AND $longitude)
+		{
+			$query .= "AND l.latitude = ".floatval($latitude)." AND l.longitude = ".floatval($longitude)." "; 
+		}
+		
+		$query .= "ORDER BY i.incident_date DESC"; 
 			
 		$recentFuturesIncidents = Database::instance()->query($query);
 		
