@@ -40,12 +40,12 @@ hr {
 p {
 	margin-bottom:5px;
 	padding:10px;
-	font-family: Arial, sans-serif;
+	font-family: Arial !important;
 }
 
 input, textarea, .text, .textarea, .select, .file {
 	color:#000;
-	font-family:'uni_sans_bookregular';
+	font-family:Arial;
 	width:100%;
 }
 
@@ -193,7 +193,7 @@ div.rapidxwpr, #main .left-col, #main .right-col {
     text-transform: uppercase;
     font-size: 12px;
     text-align: center;
-	font-family:'uni_sans_bookregular';
+	font-family:Arial;
 }
 
 #future-info h4 {
@@ -293,7 +293,7 @@ div.rapidxwpr, #main .left-col, #main .right-col {
 	position: relative;
 	z-index: 101;
 
-	font-family: 'uni_sans_boldregular';
+	font-family: Arial;
 }
 
 /*#media-tabs:after,*/
@@ -416,6 +416,10 @@ div.rapidxwpr, #main .left-col, #main .right-col {
 	width: 290px !important;
 	border: 2px solid #666;
 	height: 40px !important;
+}
+
+#media-content input#addURL {
+	width: 260px !important;
 }
 
 #media-content button.pm {
@@ -568,7 +572,7 @@ div.rapidxwpr, #main .left-col, #main .right-col {
 }
 .report-comments .icon {
 	float: left;
-	font-family:'uni_sans_bookregular';
+	font-family:Arial;
 	width: 70px;
 	line-height: 15px;
 	text-align: center;
@@ -888,7 +892,7 @@ div.comment-block {
 	/*margin: 0 0 20px 0;*/
 }
 .future-location .city {
-	font-family:'uni_sans_boldregular';
+	font-family:Arial;
 	text-transform: uppercase;
 }
 
@@ -945,8 +949,9 @@ div.comment-block {
 	padding: 5px;
 	margin-bottom: 3px;
 	position: relative;
-	font-size: 14pt;
+	font-size: 17px;
 	background-color: #777 !important;
+	font-family:Arial !important;
 }
 
 #all-cities a.city:hover {
@@ -963,7 +968,7 @@ div.comment-block {
 	display: inline-block;
 	width: 50%;
 	text-align: left;
-	font-family:'uni_sans_boldregular';
+	font-family:Arial;
 }
 #all-cities a.city .points {
 	position: absolute;
@@ -1011,7 +1016,7 @@ body.page-members-profile .row h4 {
 }
 
 #progress .phase {
-    font-family:'uni_sans_boldregular';
+    font-family:Arial;
     text-transform: uppercase;
 }
 

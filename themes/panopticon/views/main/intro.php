@@ -31,7 +31,7 @@
                           <li>Learn from feedback and refine</li>
                         </ol>
 
-                        <a href="" class="introModaInstructionsLink">Click for more detailed instructions</a>
+                        <a href="#how-to-play" class="introModaInstructionsLink">Click for more detailed instructions</a>
 
                       </div>
 
@@ -53,9 +53,9 @@
                       </div>
 
                       <div class="introModalLoginBox">
-                        <a href="#" class="introModalLoginButton">Register</a>
-                        <a href="/login/?newaccount" class="introModalLoginLabel">New User</a>
-                        <input type="text" class="loginTextInput"><input type="password" class="loginPasswordInput">
+                        <a href="#" class="introModalLoginButton">NEW PLAYER SIGN UP</a>
+  
+                        <input type="text" class="loginTextInput" placeholder="Email"><input type="password" class="loginPasswordInput" placeholder="Password">
                         <input type="submit" name="submit" value="Login" class="introModalLoginButton">
                         <a href="#action" class="introModalLoginLabel forgotPasswordLink">Forgot your password?</a>
 

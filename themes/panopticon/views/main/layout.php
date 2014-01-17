@@ -4,7 +4,7 @@
 <div class="mapSearchOptions">
   <select>
     <option>Location</option>
-    <option>Category</option>
+    <option>Keyword</option>
   </select>
 </div>
 <div id="mapFilters" class="clearingfix">

@@ -51,10 +51,24 @@ if ($logged_in) {
 		<span class="username"><?php echo Kohana::lang('makercities.submitted_by'); ?> <?php echo html::specialchars($username); ?> <?php echo Kohana::lang('makercities.on'); ?> <?php echo $incident_dateadd; ?></span>
 	</div>
 
+		<div class="description">
+
+
+			<p><?php echo nl2br($incident_description); ?></p>
+
+						<div class="share-icons" data-tooltip="<?php echo Kohana::lang('makercities.social.tooltip'); ?>" data-tooltip-pos="right">
+				<a href="<?php echo $facebook_share_link; ?>" target="_blank" class="facebook" title="<?php echo Kohana::lang('makercities.social.facebook.share'); ?>"></a>
+				<a href="<?php echo $twitter_share_link; ?>" target="_blank" class="twitter" title="<?php echo Kohana::lang('makercities.social.twitter.share'); ?>"></a>
+			</div>
+		</div>
+
+
+<div class="report_row"><p style="color:#ec008a;font-weight:bold;text-transform:uppercase;font-size:18px;">NOW it's your turn...</p></div>
+
 	<?php if (!isset($_COOKIE['hide_phase_tooltips']) && $phase < 3) : ?>
 	<div id="phase-tooltips">
 	<?php if ($phase == 1) : ?>
-		<div class="proposal-tooltip arrow_box bottom"><div class="tooltip-x"></div><?php echo Kohana::lang('makercities.phases.proposal_tooltip'); ?></div>
+		<div class="proposal-tooltip arrow_box bottom"><div class="tooltip-x"></div>If this future intrigues you, click the heart in the circle below to SUPPORT it and help it move on to the REFINE stage!</div>
 	<?php elseif ($phase == 2) : ?>
 		<div class="active-tooltip arrow_box bottom"><div class="tooltip-x"></div><?php echo Kohana::lang('makercities.phases.active_tooltip'); ?></div>
 	<?php endif; ?>
@@ -63,16 +77,16 @@ if ($logged_in) {
 
 	<div id="progress"<?php if (isset($_COOKIE['hide_phase_tooltips'])) : ?> class="tooltips"<?php endif; ?>>
 		<div class="progress-circle category-<?php echo $main_category; ?> level1<?php if ($phase == 1) : ?> current<?php endif;?>" data-tooltip="<?php echo preg_replace("/<a.*?>(.*?)<\/a>/", "<b>$1</b>", Kohana::lang('makercities.phases.proposal_tooltip')); ?>" data-tooltip-pos="left">
-			<div class="phase">1. <?php echo Kohana::lang('makercities.phases.proposal'); ?></div>
-			<div><?php echo Kohana::lang('makercities.phases.proposal_short_desc'); ?></div>
+			<div class="phase">1. SUPPORT</div>
+			<div>this future</div>
 		</div>
 		<div class="progress-circle category-<?php echo $main_category; ?> level2<?php if ($phase == 2) : ?> current<?php endif;?>" data-tooltip="<?php echo preg_replace("/<a.*?>(.*?)<\/a>/", "<b>$1</b>", Kohana::lang('makercities.phases.active_tooltip')); ?>" data-tooltip-pos="top">
-			<div class="phase">2. <?php echo Kohana::lang('makercities.phases.active'); ?></div>
-			<div><?php echo Kohana::lang('makercities.phases.active_short_desc'); ?></div>
+			<div class="phase">2. REFINE</div>
+			<div>Suggest changes</div>
 		</div>
 		<div class="progress-circle category-<?php echo $main_category; ?> level3<?php if ($phase == 3) : ?> current<?php endif;?>">
-			<div class="phase">3. <?php echo Kohana::lang('makercities.phases.certified'); ?></div>
-			<div><?php echo Kohana::lang('makercities.phases.certified_short_desc'); ?></div>
+			<div class="phase">3. MAKE</div>
+			<div>Prototype</div>
 		</div>
 	</div>
 
@@ -99,17 +113,58 @@ if ($logged_in) {
 	</div>
 	<?php endif; ?>
 
-		<div class="clearingfix"></div>
+	<!-- start report description -->
+			<div class="report-description-text">
+				<!-- start news source link -->
+				<?php if( count($incident_news) > 0 ) { ?>
+				<div class="credibility">
+				<h5><?php echo Kohana::lang('ui_main.reports_news');?></h5>
+						<?php
+							foreach( $incident_news as $incident_new)
+							{
+								?>
+								<a href="<?php echo $incident_new; ?> " target="_blank"><?php
+								echo $incident_new;?></a>
+								<br/>
+								<?php
+							}
+				?>
+				</div>
+				<?php } ?>
+				<!-- end news source link -->
 
-		<div class="description">
-			<div class="share-icons" data-tooltip="<?php echo Kohana::lang('makercities.social.tooltip'); ?>" data-tooltip-pos="right">
-				<a href="<?php echo $facebook_share_link; ?>" target="_blank" class="facebook" title="<?php echo Kohana::lang('makercities.social.facebook.share'); ?>"></a>
-				<a href="<?php echo $twitter_share_link; ?>" target="_blank" class="twitter" title="<?php echo Kohana::lang('makercities.social.twitter.share'); ?>"></a>
+				<!-- start additional fields -->
+				<?php if(strlen($custom_forms) > 0) { ?>
+				<div class="credibility">
+				<h5><?php echo Kohana::lang('ui_main.additional_data');?></h5>
+				<?php
+
+					echo $custom_forms;
+
+				?>
+				<br/>
+				</div>
+				<?php } ?>
+				<!-- end additional fields -->
+
+				<?php if ($features_count)
+				{
+					?>
+					<br /><br /><h5><?php echo Kohana::lang('ui_main.reports_features');?></h5>
+					<?php
+					foreach ($features as $feature)
+					{
+						echo ($feature->geometry_label) ?
+						 	"<div class=\"feature_label\"><a href=\"javascript:getFeature($feature->id)\">$feature->geometry_label</a></div>" : "";
+						echo ($feature->geometry_comment) ?
+							"<div class=\"feature_comment\">$feature->geometry_comment</div>" : "";
+					}
+				}?>
 			</div>
 
-			<h3><?php echo Kohana::lang('ui_main.description'); ?></h3>
-			<p><?php echo nl2br($incident_description); ?></p>
-		</div>
+		<div class="clearingfix"></div>
+
+
 
 		<?php 
 		//upload field for make stage
@@ -122,7 +177,7 @@ if ($logged_in) {
 
 			<div id="media-content">
 				<div class="item file">
-					<input type="text" name="protoype-link" value="Paste your URL here"  class="text" />
+					<input type="text" name="protoype-link" value="Paste your URL here" style="width" />
 					<button class="pm">Add prototype</button>
 				</div>			
 			</div>
@@ -180,55 +235,6 @@ if ($logged_in) {
 		    ?>
 			</div>
 
-			<!-- start report description -->
-			<div class="report-description-text">
-				<!-- start news source link -->
-				<?php if( count($incident_news) > 0 ) { ?>
-				<div class="credibility">
-				<h5><?php echo Kohana::lang('ui_main.reports_news');?></h5>
-						<?php
-							foreach( $incident_news as $incident_new)
-							{
-								?>
-								<a href="<?php echo $incident_new; ?> " target="_blank"><?php
-								echo $incident_new;?></a>
-								<br/>
-								<?php
-							}
-				?>
-				</div>
-				<?php } ?>
-				<!-- end news source link -->
-
-				<!-- start additional fields -->
-				<?php if(strlen($custom_forms) > 0) { ?>
-				<div class="credibility">
-				<h5><?php echo Kohana::lang('ui_main.additional_data');?></h5>
-				<?php
-
-					echo $custom_forms;
-
-				?>
-				<br/>
-				</div>
-				<?php } ?>
-				<!-- end additional fields -->
-
-				<?php if ($features_count)
-				{
-					?>
-					<br /><br /><h5><?php echo Kohana::lang('ui_main.reports_features');?></h5>
-					<?php
-					foreach ($features as $feature)
-					{
-						echo ($feature->geometry_label) ?
-						 	"<div class=\"feature_label\"><a href=\"javascript:getFeature($feature->id)\">$feature->geometry_label</a></div>" : "";
-						echo ($feature->geometry_comment) ?
-							"<div class=\"feature_comment\">$feature->geometry_comment</div>" : "";
-					}
-				}?>
-			</div>
-
 			<div class="clearingfix"></div>
 
 		</div>
@@ -260,8 +266,5 @@ if ($logged_in) {
 		?>
 
 		</div>
-
-
-
 
 </div>

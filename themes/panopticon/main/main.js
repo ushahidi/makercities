@@ -92,6 +92,8 @@ jQuery(document).ready(function($) {
 		$('#panel-wrapper .panel').hide();
 		$("#about-panel").show();
 	});
+
+
 		
 	// Show panel on tab click
 	$('#panel-tabs li a').click(function() {
@@ -169,6 +171,11 @@ jQuery(document).ready(function($) {
 	$('#introTourLink').click(function() {
 		$('#intro').fadeOut('fast');
 	});
+
+	$(".introModaInstructionsLink").click(function(){
+		$('#intro').fadeOut('fast');
+	});
+
 	// $.removeCookie('hide_intro');
 
 	$('#intro-video .placeholder').click(function() {
