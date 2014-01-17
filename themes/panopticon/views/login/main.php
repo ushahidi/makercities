@@ -21,8 +21,6 @@ echo html::script(url::file_loc('js').'media/js/global', TRUE);
 
 <body>
 
-<?php echo $header_nav; ?>
-
 <div id="openid_login_container">
 
 	<div id="ushahidi_site_name">

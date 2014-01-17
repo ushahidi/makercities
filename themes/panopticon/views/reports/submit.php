@@ -19,6 +19,14 @@
 		<input id="location_name" name="location_name" type="hidden" value="<?php echo Kohana::lang('makercities.reports_location_name'); ?>" />
 
 		<div class="big-block">
+
+
+				<div class="submit report_row">
+					<h2 class="center"><?php echo Kohana::lang('makercities.reg_or_login'); ?></h2>
+				</div>
+
+
+	<?php if ($logged_in) : ?>
 			<h1><?php echo Kohana::lang('ui_main.reports_submit_new'); ?></h1>
       <hr>
       <p><?php echo Kohana::lang('makercities.submit_description'); ?>
@@ -153,10 +161,10 @@
 					</div>
 					<div style="clear:both; display:block;" id="incident_date_time"></div>
 				</div>
-				<div class="report_row">
+
 					<!-- Adding event for endtime plugin to hook into -->
 				<?php Event::run('ushahidi_action.report_form_frontend_after_time'); ?>
-				</div>
+
 
 
 				<?php
@@ -240,14 +248,10 @@
 					<input name="submit" type="submit" value="<?php echo Kohana::lang('makercities.reports_btn_submit'); ?>" class="btn_submit" /> 
 				</div>
 
-				<?php else: ?>
-
-				<hr />
-				<div class="submit report_row">
-					<h2 class="center"><?php echo Kohana::lang('makercities.reg_or_login'); ?></h2>
-				</div>
 				<?php endif; ?>
 			</div>
+
+		<?php endif; ?>
 		</div>
 		<?php print form::close(); ?>
 		<!-- end report form block -->

@@ -122,8 +122,8 @@ if ($logged_in) {
 
 			<div id="media-content">
 				<div class="item file">
-					<div class="upload-file"></div>
-					<button class="pm plus"></button>
+					<input type="text" name="protoype-link" value="Paste your URL here"  class="text" />
+					<button class="pm">Add prototype</button>
 				</div>			
 			</div>
 

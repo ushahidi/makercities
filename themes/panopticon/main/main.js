@@ -165,6 +165,10 @@ jQuery(document).ready(function($) {
 		$.cookie('hide_intro', '1', { expires: 1000 });
 		document.location.hash = '';
 	});
+
+	$('#introTourLink').click(function() {
+		$('#intro').fadeOut('fast');
+	});
 	// $.removeCookie('hide_intro');
 
 	$('#intro-video .placeholder').click(function() {
@@ -352,7 +356,7 @@ function reportClick(href) {
 
 	document.location.hash = href.replace(/^https?:\/\/.*?\//, '');
 
-
+	$('#panel-wrapper .panel').hide();
 
 	$('#info-x, #info-panel').addClass('loading');
 	panelTab.addClass('open')

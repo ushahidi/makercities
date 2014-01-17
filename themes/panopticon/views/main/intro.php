@@ -35,7 +35,7 @@
 
                       </div>
 
-                      <a href="#" class="introModalWeeklyChallenge">
+                      <a href="http://blog.makercities.net/synchronicity-challenge/" class="introModalWeeklyChallenge">
                         <span class="imwc-topRow">Check out the</span>
 
 
@@ -49,7 +49,7 @@
                       <div class="introModalCTA">
                         <p>Play the game <span>and</span> make the future</p>
 
-                        <a href="#">Tour the game</a>
+                        <a href="#tutorial" id="introTourLink">Tour the game</a>
                       </div>
 
                       <div class="introModalLoginBox">

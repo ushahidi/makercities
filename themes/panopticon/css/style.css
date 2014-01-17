@@ -2984,11 +2984,22 @@ h2.report-title a:hover {
     clear:both;
 }
 
+#category-descriptions p {
+	padding-top: 0px;
+	width: 224px;
+	position: absolute;
+	left:109px;
+}
+
 #category-descriptions div.pane {
     display:none;
     padding:15px;
-    height:70px;
+    height:85px;
     border:2px solid #fff;
+}
+
+#category-maker-works {
+	height:100px !important;
 }
 
 #category-descriptions div.pane.active {

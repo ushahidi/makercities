@@ -672,6 +672,7 @@ div.olControlScaleLine {
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+  display:none;
 }
 #zoomOut {
   top: 22px;
