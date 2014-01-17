@@ -215,7 +215,6 @@ jQuery(document).ready(function($) {
 		geoCode();
 	}
 
-
 	// Hide it if we've got a Close cookie or hash to load
 	if ( $.cookie('hide_intro') == undefined && document.location.hash == '' ) $('#intro').show();
 
@@ -284,7 +283,7 @@ jQuery(document).ready(function($) {
 			var code = (e.keyCode ? e.keyCode : e.which);
 			if(code == 13) { //Enter keycode
 				document.location.hash = 'search';
-				geoCodeWithZoom(16);
+				geoCodeWithZoom(6);
 				return false;
 			}
 	});
@@ -404,7 +403,7 @@ function closePanel() {
  * Google GeoCoder
  */
 function geoCode(){
-  geoCodeWithZoom(14);
+  geoCodeWithZoom(6);
 }
 
 function geoCodeWithZoom(zoom) {
