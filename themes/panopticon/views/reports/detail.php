@@ -65,7 +65,7 @@ if ($logged_in) {
 
 <div class="report_row"><p style="color:#ec008a;font-weight:bold;text-transform:uppercase;font-size:18px;">NOW it's your turn...</p></div>
 
-	<?php if (!isset($_COOKIE['hide_phase_tooltips']) && $phase < 3) : ?>
+	<?php if (!isset($_COOKIE['hide_phase_tooltips']) && $phase < 4) : ?>
 	<div id="phase-tooltips">
 	<?php if ($phase == 1) : ?>
 		<div class="proposal-tooltip arrow_box bottom"><div class="tooltip-x"></div>If this future intrigues you, click the heart in the circle below to SUPPORT it and help it move on to the REFINE stage!</div>
@@ -244,7 +244,6 @@ if ($logged_in) {
 		    ?>
 			</div>
 
-			<div class="clearingfix"></div>
 
 		</div>
 		<?php endif; // media ?>
@@ -256,10 +255,10 @@ if ($logged_in) {
 			if ($active_allowed) $comment_class_names[] = 'active-allowed';
 			$comment_class_names = (count($comment_class_names) > 0) ? ' class="' . implode(' ', $comment_class_names) . '"' : '';
 		
-			if($proposal_allowed) :
+			if(!$active_allowed && !$proposal_allowed) :
 		?>
 
-	<div id="report_row"><p style="color: #fff800;">Please log in to support this future!</p></div>
+<p style="color: #fff800;">Please log in to support this future!</p>
 
 		<?php else : ?>
 
