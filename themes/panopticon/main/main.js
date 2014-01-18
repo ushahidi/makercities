@@ -407,6 +407,9 @@ function geoCode(){
 }
 
 function geoCodeWithZoom(zoom) {
+
+	var optionBox = $('#option-box').find(":selected").text();
+
 	var searchBox = $('#search-bar'),
 		address   = searchBox.val(),
 	    mainMap = $('#map').is(':visible');
@@ -415,33 +418,41 @@ function geoCodeWithZoom(zoom) {
 		window.frames['reports'].geoCode(searchBox);
 		return;
 	}
-
-	searchBox.addClass('loading');
-	$.post(siteRoot + "/reports/geocode/", { address: address },
-		function(data){
-			if (data.status == 'success'){
-				// create a new lat/lon object
-				zoomToLongLatZoom(data.longitude, data.latitude, zoom);
+	
+	if (optionBox == 'Location') {
+		searchBox.addClass('loading');
+		$.post(siteRoot + "/reports/geocode/", { address: address },
+			function(data){
+				if (data.status == 'success'){
+					// create a new lat/lon object
+					zoomToLongLatZoom(data.longitude, data.latitude, zoom);
 										
-				// Update form values
-				searchBox.val(data.location_name).trigger('update');
+					// Update form values
+					searchBox.val(data.location_name).trigger('update');
+					
+					//Update futures as per location name
+					$.post(siteRoot + "/reports/recentFutures", {location: data.location_name});
+					// Exit if this is a City click
+					if (!document.location.hash.match(/^#city=/i))
+						document.location.hash = 'search=' + encodeURIComponent(data.location_name).replace(/%20/g, '+');
 
-				// Exit if this is a City click
-				if (!document.location.hash.match(/^#city=/i))
-					document.location.hash = 'search=' + encodeURIComponent(data.location_name).replace(/%20/g, '+');
+				} else {
+					// Alert message to be displayed
+					var alertMessage = address + " not found!\n\n***************************\n" + 
+						"Enter more details like city, town, country\nor find a city or town " +
+						"close by and zoom in\nto find your precise location";
 
-			} else {
-				// Alert message to be displayed
-				var alertMessage = address + " not found!\n\n***************************\n" + 
-				    "Enter more details like city, town, country\nor find a city or town " +
-				    "close by and zoom in\nto find your precise location";
+					alert(alertMessage)
+				}
 
-				alert(alertMessage)
-			}
-
-			searchBox.removeClass('loading');
-		}, "json");
-	return false;
+				searchBox.removeClass('loading');
+			}, "json");
+		return false;
+	}
+	else if (optionBox == 'Keyword'){
+		//console.log('you are searching by keyword');
+		$.post(siteRoot + "/reports/recentFutures", {location: searchBox});
+	}
 }
 
 function zoomToLongLat(longitude, latitude) {

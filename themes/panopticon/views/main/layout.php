@@ -2,9 +2,9 @@
 <div id="myLocationZoom" title="<?php echo Kohana::lang('makercities.my_location_zoom');?>"></div>
 <div id="addingFuture" class="adding-future clearingfix"><?php echo Kohana::lang('makercities.adding_a_future'); ?></div>
 <div class="mapSearchOptions">
-  <select>
-    <option>Location</option>
-    <option>Keyword</option>
+  <select id = "option-box">
+    <option value="0">Location</option>
+    <option value="1">Keyword</option>
   </select>
 </div>
 
