@@ -1698,7 +1698,7 @@ class Reports_Controller extends Main_Controller {
 		$this->template->footer->footer_block = $this->themes->footer_block();
 	}
 
-	public function recentFutures($latitude = FALSE, $longitude = FALSE)
+	public function recentFutures($location = FALSE)
 	{
 		// Cacheable Controller
 		//$this->is_cachable = TRUE;
