@@ -1312,8 +1312,8 @@ label.error {
     margin: 20px 0 0 0;
     padding: 8px 10px;
     color: white;
-    background-color:#333;
-    font-size:14px;
+    background-color:#888;
+    font-size:13px;
     cursor:pointer;    
     border: 0;
     text-transform: uppercase;
@@ -1324,8 +1324,8 @@ label.error {
     padding: 5px 0 6px 0;
     text-align:center;
     color: white;
-    background-color:#333;
-    font-size:14px;
+    background-color:#888;
+    font-size:13px;
     cursor:pointer;    
     border: 0;    
 }
@@ -2879,8 +2879,7 @@ h2.report-title a:hover {
 .category-maker-bodies .comment:before,
 .category-maker-bodies .percentage-bar,
 .category-maker-bodies .support-icon:before,
-.category-maker-bodies .certification-icon:before,
-.category-maker-bodies .share-icons a:hover,
+.category-maker-bodies .certification-icon:before,,
 .category-maker-bodies .future-box:after {
     background-color: #29AAE1;
 }

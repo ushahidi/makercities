@@ -26,7 +26,7 @@ echo html::script(url::file_loc('js').'media/js/global', TRUE);
 	<div id="ushahidi_site_name">
   	<div id="logo">
 			<a href="<?php echo url::site();?>">
-				<img src="<?php echo url::site();?>themes/panopticon/images/makerCities_logo_small.png" alt="Maker Cities" style="width:200px;" />
+				<img src="<?php echo url::site();?>themes/panopticon/images/makerCities_logo_small2.png" alt="Maker Cities" style="width:242px;margin-top:-20px;" />
 			</a>
 			<div id="tagline"><?php echo $site_tagline; ?></div>
 		</div>

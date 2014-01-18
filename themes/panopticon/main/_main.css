@@ -83,7 +83,7 @@ div#tagline {
 #currentChallenge {
   height:54px;
   background-color: #ffde00;
-  width:55%;
+  width:60%;
   position:relative;
   top:7px;
   margin-left:250px;
@@ -171,9 +171,10 @@ div#tagline {
 }
 
 .panel  {
+  height:80%; /* fallback */
   height: calc(100% - 97px) !important;
-  height: -moz-calc(100% - 97) !important;
-  height: -webkit-calc(100% - 97) !important;
+  height: -moz-calc(100% - 97px) !important;
+  height: -webkit-calc(100% - 97px) !important;
 }
 
 .panel iframe {
@@ -245,10 +246,6 @@ div#tagline {
   font-size:13px;
   height:100%;
   line-height:34px;
-}
-
-.panel-scoreboard {
-  float:right;
 }
 
 .allFuturesDropdown a {

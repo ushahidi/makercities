@@ -9,7 +9,7 @@ body {
 	background-image:url(../img/map-background.png);
 }
 body, td {
-	font: 13px "Lucida Grande", "Lucida Sans Unicode", Tahoma, Verdana, sans-serif;
+	font: 13px "Adelle Sans", sans-serif;
 }
 
 
@@ -20,16 +20,16 @@ h3 { margin-bottom:8px; }
 	h3 a { font-size:10px; font-weight:normal; }
 a:link,
 a:visited {
-	color:#003399;
+	color:#f00087;
 }
 a:visited {
-	color:#0066CC;
+	color:#f00087;
 }
 a:hover,
 a:focus,
 a:active {
 	text-decoration:none;
-	color:#003399;
+	color:#f00087;
 }
 
 
@@ -47,12 +47,11 @@ dl {}
 	dd {}
 
 		#tagline {
-			font-family: 'uni_sans_boldregular';
+			font-family: 'Adelle Sans', sans-serif;
 			font-size: 28px;
 			float: right;
 			width: 300px;
 			margin-top: 40px;
-		    text-shadow: 2px 2px 0 #fff;
 		}
 
 /* LOGIN BOX */
@@ -230,7 +229,7 @@ dl {}
 
 	/* System Messages */
 	/*****************************/
-	.feedback { padding:10px 10px 10px 48px; color:#4D4D4D; margin-bottom:10px; }
+	.feedback { padding:10px 10px 10px 48px; color:#000; margin-bottom:10px; font-size:18px !important;}
 	
 	.feedback p, 
 	.feedback ul { margin-bottom:10px }

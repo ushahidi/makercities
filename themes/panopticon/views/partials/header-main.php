@@ -60,7 +60,7 @@
         <div class="panelMenuWhiteSection">
         <ul id="panel-tabs">
   
-            <li class="panel-submit"><a href="#submit">Add Your Future</a></li><li class="panel-pins"><a href="#pins">All Futures</a>
+            <li class="panel-submit"><a href="#submit" style="width:130px;text-align:center;">Add A Future</a></li><li class="panel-pins"><a href="#pins">All Futures</a>
   
               <ul class="allFuturesDropdown">
                 <li class="panel-recentFutures"><a href="#recentFutures">Recent Futures</a></li>  
@@ -68,7 +68,7 @@
                 <li class="panel-topFutures"><a href="#topFutures">Top Futures</a></li> 
               </ul>
   
-            </li><li class="panel-scoreboard"><a href="#scoreboard"><?php echo Kohana::lang('makercities.tab_scoreboard'); ?></a></li>
+            </li><li class="panel-scoreboard"><a href="#scoreboard" style="width:97px;float:none;text-align:center;"><?php echo Kohana::lang('makercities.tab_scoreboard'); ?></a></li>
   
           </ul>
         </div>

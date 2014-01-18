@@ -20,10 +20,12 @@
 
 		<div class="big-block">
 
-
+	<?php if (!$logged_in) : ?>
 				<div class="submit report_row">
 					<h2 class="center"><?php echo Kohana::lang('makercities.reg_or_login'); ?></h2>
 				</div>
+
+			<?php endif; ?>
 
 
 	<?php if ($logged_in) : ?>
@@ -197,9 +199,7 @@
 */?>
 				<div class="add_media report_row">
 					<h1><?php echo Kohana::lang('makercities.add_media'); ?></h1>
-				</div>
 
-				<div class="report_row">
 					<?php echo Kohana::lang('makercities.media_description'); ?>
 				</div>
 

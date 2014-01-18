@@ -53,7 +53,7 @@
                       </div>
 
                       <div class="introModalLoginBox">
-                        <a href="#" class="introModalLoginButton">NEW PLAYER SIGN UP</a>
+                        <a href="/login/?newaccount" class="introModalLoginButton">NEW PLAYER SIGN UP</a>
   
                         <input type="text" class="loginTextInput" placeholder="Email"><input type="password" class="loginPasswordInput" placeholder="Password">
                         <input type="submit" name="submit" value="Login" class="introModalLoginButton">
