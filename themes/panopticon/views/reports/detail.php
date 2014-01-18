@@ -89,7 +89,7 @@ if ($logged_in) {
 			<div class="phase">2. REFINE</div>
 			<div>Suggest changes</div>
 		</div>
-		<div class="progress-circle category-<?php echo $main_category; ?> level3<?php if ($phase == 3) : ?> current<?php endif;?>" data-tooltip="Create a prototype - a concept image, comic strip, map, video interview, Arduino project, or any kind of made media or object that helps other players better understand this idea!" data-tooltip-pos="top">
+		<div class="progress-circle category-<?php echo $main_category; ?> level3<?php if ($phase == 3) : ?> current<?php endif;?>" data-tooltip="Create a prototype - a concept image, comic strip, map, video interview, Arduino project, or any kind of made media or object that helps other players better understand this idea!" data-tooltip-pos="right">
 			<div class="phase">3. MAKE</div>
 			<div>Prototype</div>
 		</div>

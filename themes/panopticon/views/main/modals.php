@@ -6,7 +6,7 @@
       <div class="helpWindowTop"></div><div class="pad">
          <div class="work section">
 
-          <div class="icon work-imagine"><b><span class="helpWindowNumber">1</span> Imagine + Add</b> Imagine an idea for your city in 2023 and add your future (idea) to the map.</div>
+          <div class="icon work-imagine"><b><span class="helpWindowNumber">1</span> Imagine + Add</b> Imagine an idea for your city in 2025 and add your future (idea) to the map.</div>
           <div class="icon work-support"><b><span class="helpWindowNumber">2</span> Support</b> Other players support your future and you support others’ futures. After 2 supports, a future moves to the refine stage.</div>
           <div class="icon work-make"><b><span class="helpWindowNumber">3</span> Refine</b> Other players refine your future and you refine others’; after 6 refinement suggestions, a future moves to the make stage.</div>
           <div class="icon work-points"><b><span class="helpWindowNumber">4</span> Make</b> Now anyone can make a prototype (drawing, photo, video) and upload it to the game to help bring any future to life!</div>

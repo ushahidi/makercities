@@ -1071,17 +1071,24 @@ body.page-members-profile .row h4 {
 
 #progress .progress-circle .arrow_box {
 	z-index: 9999 !important;
-	height: 70px;
+	height: 80px;
 }
 #progress .progress-circle.level1 .arrow_box {
 	left: 95px;
 	margin-top: -5px;
-	width: 250px;
+	width: 240px;
 }
 #progress .progress-circle.level2 .arrow_box {
 	left: -150px;
 	margin-top: 100px;
-	width: 360px;
+	width: 330px;
+	height: auto;
+}
+
+#progress .progress-circle.level3 .arrow_box {
+	left: 10px;
+	margin-top: -5px;
+	width: 240px;
 	height: auto;
 }
 
