@@ -89,7 +89,7 @@ if ($logged_in) {
 			<div class="phase">2. REFINE</div>
 			<div>Suggest changes</div>
 		</div>
-		<div class="progress-circle category-<?php echo $main_category; ?> level3<?php if ($phase == 3) : ?> current<?php endif;?>" data-tooltip="Create a prototype - a concept image, comic strip, map, video interview, Arduino project, or any kind of made media or object that helps other players better understand this idea!" data-tooltip-pos="right">
+		<div class="progress-circle category-<?php echo $main_category; ?> level3<?php if ($phase == 3) : ?> current<?php endif;?>" data-tooltip="Create a prototype - a concept image, comic strip, map, video interview, Arduino project, or any kind of made media or object that helps other players better understand this idea!" data-tooltip-pos="top">
 			<div class="phase">3. MAKE</div>
 			<div>Prototype</div>
 		</div>
@@ -173,8 +173,6 @@ if ($logged_in) {
 
 		<div class="clearingfix"></div>
 
-
-
 		<?php 
 		//upload field for make stage
 		if ($phase == 3) : ?>
@@ -255,7 +253,7 @@ if ($logged_in) {
 			if ($active_allowed) $comment_class_names[] = 'active-allowed';
 			$comment_class_names = (count($comment_class_names) > 0) ? ' class="' . implode(' ', $comment_class_names) . '"' : '';
 		
-			if(!$active_allowed && !$proposal_allowed) :
+			if(!$active_allowed) :
 		?>
 
 <p style="color: #fff800;">Please log in to support this future!</p>
