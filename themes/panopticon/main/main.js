@@ -31,7 +31,7 @@ function managePanelControls(panelName){
 }
 
 function syncMapLocations(){
-	
+
 }
 
 function refreshLeaderboard() {
@@ -46,16 +46,16 @@ function refreshLeaderboard() {
 
 jQuery(document).ready(function($) {
 	var hash = document.location.hash.substr(1),
-	    searchHash;
-	
+			searchHash;
+
 	if(!$('#panel-wrapper').hasClass('closed')) $('body, .big-map, #leaderboard').addClass('panel-open');
-	
+
 	// Draw map on page load
 	drawWindow();
-    
+
 	// Redraw map on resize
 	$(window).resize(function(){ drawWindow(); });
-	
+
 	// Panels
 	// ==========
 
@@ -66,8 +66,8 @@ jQuery(document).ready(function($) {
 
 	// Show active/first panel
 	var activePanel = $('#panel-tabs li.active:first')
-	    panelHash   = ( !hash.match(/=/) ) ? hash : 'nope',
-		hashPanel   = $('#panel-tabs li.panel-' + panelHash);
+			panelHash   = ( !hash.match(/=/) ) ? hash : 'nope',
+			hashPanel   = $('#panel-tabs li.panel-' + panelHash);
 
 	if (!activePanel.length) activePanel = $('#panel-tabs li.panel-pins');
 	if (hashPanel.length)    activePanel = hashPanel;
@@ -86,7 +86,7 @@ jQuery(document).ready(function($) {
 		helpModal('work');
 	}
 
-	// Show about panel on click 
+	// Show about panel on click
 
 	$('#about-link').click(function() {
 		$('#panel-tabs li.active').removeClass('active');
@@ -95,7 +95,7 @@ jQuery(document).ready(function($) {
 	});
 
 
-		
+
 	// Show panel on tab click
 	$('#panel-tabs li a').click(function() {
 		var li      = $(this).parent('li'),
@@ -104,7 +104,7 @@ jQuery(document).ready(function($) {
 			lastPanel;
 
 		$(this).blur(); // shh
-		
+
 		if (wrapper.hasClass('closed')) { // Open panel
 			wrapper.removeClass('closed').addClass('open');
 			$('#mapStatus, #mapControls, .big-map, #leaderboard, #tweets').addClass('panel-open');
@@ -146,7 +146,7 @@ jQuery(document).ready(function($) {
 		$('#info-panel').hide();
 		$('#info-panel iframe').attr('src', 'about:blank');
 		$('#panel-tabs .panel-pins a').click();
-	    document.location.hash = 'pins';
+			document.location.hash = 'pins';
 	});
 
 	$('#map')
@@ -157,7 +157,7 @@ jQuery(document).ready(function($) {
 	$(window).bind('hashchange', reportHashClick);
 	reportHashClick();
 
-	$('#submitted_futures a.report_link').click(reportClick);		
+	$('#submitted_futures a.report_link').click(reportClick);
 	// Leaderboard Marquee
 	// setTimeout("$('#leaderboard .cities').marquee({count:1});", 3000);
 
@@ -248,15 +248,15 @@ jQuery(document).ready(function($) {
 	$('#register-forgot').on('submit', function() {
 		$.cookie('hide_intro', '1', { expires: 1000 });
 	});
-		
+
 	$('.tutorial .btn.next').click(function(){
 		$(this).parent().removeClass('active').addClass('closed');
 		var tut = $('.tutorial').not('.closed').first().addClass('active');
 		switch(tut.attr('id')){
 			case 'tutorial-mapfilter':
-       			$('#panel-tabs .panel-pins:not(.active) a').click();
-       			$('#mapFilters').addClass('active');
-       			break;
+						$('#panel-tabs .panel-pins:not(.active) a').click();
+						$('#mapFilters').addClass('active');
+						break;
 			case 'tutorial-leaderboard':
 				$('#mapFilters').removeClass('active');
 				$('#panel-tabs .panel-scoreboard:not(.active) a').click();
@@ -358,9 +358,9 @@ jQuery(document).ready(function($) {
 
 function reportClick(href) {
 	var href     = (href && typeof href == 'object') ? $(this).attr('href') : href,
-	    panel    = (href.match(/\?/)) ? '&panel' : '?panel',
-	    iframe   = $('#info-panel iframe'),
-	    panelTab = $('#panel-tabs .panel-info');
+			panel    = (href.match(/\?/)) ? '&panel' : '?panel',
+			iframe   = $('#info-panel iframe'),
+			panelTab = $('#panel-tabs .panel-info');
 
 	document.location.hash = href.replace(/^https?:\/\/.*?\//, '');
 
@@ -405,7 +405,7 @@ function closePanel() {
  * Google GeoCoder
  */
 function geoCode(){
-  geoCodeWithZoom(4);
+	geoCodeWithZoom(4);
 }
 
 function geoCodeWithZoom(zoom) {
@@ -414,13 +414,13 @@ function geoCodeWithZoom(zoom) {
 
 	var searchBox = $('#search-bar'),
 		address   = searchBox.val(),
-	    mainMap = $('#map').is(':visible');
+			mainMap = $('#map').is(':visible');
 
 	if (!mainMap && window.frames['reports'].geoCode) {
 		window.frames['reports'].geoCode(searchBox);
 		return;
 	}
-	
+
 	if (optionBox == 'Location') {
 		searchBox.addClass('loading');
 		$.post(siteRoot + "/reports/geocode/", { address: address },
@@ -428,10 +428,10 @@ function geoCodeWithZoom(zoom) {
 				if (data.status == 'success'){
 					// create a new lat/lon object
 					zoomToLongLatZoom(data.longitude, data.latitude, zoom);
-										
+
 					// Update form values
 					searchBox.val(data.location_name).trigger('update');
-					
+
 					//Update futures as per location name
 					$.post(siteRoot + "/reports/recentFutures", {location: data.location_name});
 					// Exit if this is a City click
@@ -440,11 +440,11 @@ function geoCodeWithZoom(zoom) {
 
 				} else {
 					// Alert message to be displayed
-					var alertMessage = address + " not found!\n\n***************************\n" + 
+					var alertMessage = address + " not found!\n\n***************************\n" +
 						"Enter more details like city, town, country\nor find a city or town " +
 						"close by and zoom in\nto find your precise location";
 
-					alert(alertMessage)
+					alert(alertMessage);
 				}
 
 				searchBox.removeClass('loading');
@@ -458,13 +458,13 @@ function geoCodeWithZoom(zoom) {
 }
 
 function zoomToLongLat(longitude, latitude) {
-  zoomToLongLatZoom(longitude, latitude, 4);
+	zoomToLongLatZoom(longitude, latitude, 4);
 }
 
 function zoomToLongLatZoom(longitude, latitude, zoom) {
 	var mapObj    = map._olMap,
-	    proj_4326 = new OpenLayers.Projection('EPSG:4326'),
-	    myPoint   = new OpenLayers.LonLat(longitude, latitude);
+			proj_4326 = new OpenLayers.Projection('EPSG:4326'),
+			myPoint   = new OpenLayers.LonLat(longitude, latitude);
 
 	myPoint.transform(proj_4326, mapObj.getProjectionObject());
 
@@ -480,8 +480,8 @@ function noGeolocation() {
 
 function showTutorial() {
 	if (this) $(this).blur();
-  if($('.tutorial.active').length > 0)
-    return;
+	if($('.tutorial.active').length > 0)
+		return;
 	$('#panel-tabs .panel-pins:not(.active) a').click();
 	$('.tutorial').removeClass('closed');
 	$('.tutorial').not('.closed').first().addClass('active');
@@ -505,7 +505,7 @@ function submitModal(res) {
 	if (!res.id) return;
 
 	var modal = $('#modal'),
-	    num   = (res.postCount == 1) ? 'first' : ordinal_suffix_of(res.postCount);
+			num   = (res.postCount == 1) ? 'first' : ordinal_suffix_of(res.postCount);
 
 	$('#modal .modal, #modal .help').hide();
 	$('#modal, #modal .submit').show();
