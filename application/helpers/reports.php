@@ -661,6 +661,16 @@ class reports_Core {
 			}
 		}
 		
+		// Get Search Keywords (If Any)
+		if (isset($url_data['q']))
+		{
+			//	Brute force input sanitization
+			// Phase 1 - Strip the search string of all non-word characters
+			$keyword_raw = (isset($_GET['q']))? preg_replace('#/\w+/#', '', $_GET['q']) : "";
+
+			array_push(self::$params, " (".self::_get_searchstring($keyword_raw).") ");
+		}
+		
 		//> BEGIN PARAMETER FETCH
 		// 
 		// Check for the category parameter
@@ -1119,6 +1129,54 @@ class reports_Core {
 		}
 
 		return $city_name;
+	}
+
+
+
+	/**
+	 * Creates a SQL string from search keywords
+	 */
+	public static function _get_searchstring($keyword_raw)
+	{
+		$or = '';
+		$where_string = '';
+
+		/**
+		 * NOTES: 2011-11-17 - John Etherton <john@ethertontech.com> I'm pretty sure this needs to be
+		 * internationalized, seems rather biased towards English.
+		 * */
+		// Stop words that we won't search for
+		// Add words as needed!!
+		$stop_words = array('the', 'and', 'a', 'to', 'of', 'in', 'i', 'is', 'that', 'it',
+		'on', 'you', 'this', 'for', 'but', 'with', 'are', 'have', 'be',
+		'at', 'or', 'as', 'was', 'so', 'if', 'out', 'not');
+
+		$keywords = explode(' ', $keyword_raw);
+
+		if (is_array($keywords) AND !empty($keywords))
+		{
+			array_change_key_case($keywords, CASE_LOWER);
+			$i = 0;
+
+			foreach ($keywords as $value)
+			{
+				if (!in_array($value,$stop_words) AND !empty($value))
+				{
+					$chunk = Database::instance()->escape_str($value);
+					if ($i > 0)
+					{
+						$or = ' OR ';
+					}
+					$where_string = $where_string
+									.$or
+									."incident_title LIKE '%$chunk%' OR incident_description LIKE '%$chunk%'  OR location_name LIKE '%$chunk%'";
+					$i++;
+				}
+			}
+		}
+
+		// Return
+		return (!empty($where_string)) ? $where_string :  "1=1";
 	}
 
 }
