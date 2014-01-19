@@ -200,7 +200,7 @@
 				<div class="add_media report_row">
 					<h1><?php echo Kohana::lang('makercities.add_media'); ?></h1>
 
-					<?php echo Kohana::lang('makercities.media_description'); ?>
+					<p><?php echo Kohana::lang('makercities.media_description'); ?></p>
 				</div>
 
 				<div id="media-select">

@@ -50,13 +50,7 @@
 			<a href="<?php echo url::site().$loggedin_role;?>"><span class="header_nav_label"><?php echo htmlentities($loggedin_user->name, ENT_QUOTES, "UTF-8"); ?></span> <img alt="<?php echo htmlentities($loggedin_user->name, ENT_QUOTES, "UTF-8"); ?>" src="<?php echo htmlentities(members::gravatar($loggedin_user->email, 20), ENT_QUOTES); ?>" width="20" /></a>
 
 			<ul class="header_nav_dropdown" style="display:none;">
-			<?php if($loggedin_role == "admin"){ /* Was: != "" */ ?>
-				<li><a href="<?php echo url::site().$loggedin_role;?>/profile"><?php echo Kohana::lang('ui_main.manage_your_account'); ?></a></li>
 
-				<li><a href="<?php echo url::site().$loggedin_role;?>"><?php echo Kohana::lang('ui_main.your_dashboard'); ?></a></li>
-			<?php } else { ?>
-				<li><a href="<?php echo url::site();?>members/profile" class="edit-profile"><?php echo Kohana::lang('ui_main.manage_your_account'); ?></a></li>
-			<?php } ?>
 				<?php /* <li><a href="<?php echo url::site();?>profile/user/<?php echo $loggedin_user->username; ?>"><?php echo Kohana::lang('ui_main.view_public_profile'); ?></a></li> */ ?>
 
 				<li><a href="<?php echo url::site();?>logout"><em><?php echo Kohana::lang('ui_admin.logout');?></em></a></li>
