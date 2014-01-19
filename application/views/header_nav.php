@@ -8,7 +8,7 @@
 
 		<ul id="headerNavFirstRow">
 
-			<li><a id="blog-link" href="#blog">Blog</a></li></li>
+			<li><a id="blog-link" href="http://blog.makercities.net">Blog</a></li></li>
          	<li id="how-to-play"><a href="#how-to-play"><?php echo Kohana::lang('makercities.how_to_play'); ?>
          		<ul id="headerNavSecondRow">
 	
@@ -60,16 +60,7 @@
 				<?php /* <li><a href="<?php echo url::site();?>profile/user/<?php echo $loggedin_user->username; ?>"><?php echo Kohana::lang('ui_main.view_public_profile'); ?></a></li> */ ?>
 
 				<li><a href="<?php echo url::site();?>logout"><em><?php echo Kohana::lang('ui_admin.logout');?></em></a></li>
-
-				<li>
-					<div id="submitted_futures">
-						My Submitted Futures
-						<div id="rb_list-view">
-							<?php if (isset($my_submitted_futures)) { echo $my_submitted_futures; } ?>
-						</div>
-
-					</div>
-				</li>
+				
 			</ul>
 
 		<?php } else { ?>

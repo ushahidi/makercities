@@ -89,6 +89,7 @@ jQuery(document).ready(function($) {
 	// Show about panel on click 
 
 	$('#about-link').click(function() {
+		$('#panel-tabs li.active').removeClass('active');
 		$('#panel-wrapper .panel').hide();
 		$("#about-panel").show();
 	});
@@ -363,6 +364,7 @@ function reportClick(href) {
 
 	document.location.hash = href.replace(/^https?:\/\/.*?\//, '');
 
+	$('#panel-tabs li.active').removeClass('active');
 	$('#panel-wrapper .panel').hide();
 
 	$('#info-x, #info-panel').addClass('loading');

@@ -54,11 +54,12 @@
 
                       <div class="introModalLoginBox">
                         <a href="/login/?newaccount" class="introModalLoginButton">NEW PLAYER SIGN UP</a>
-  
-                        <input type="text" class="loginTextInput" placeholder="Email"><input type="password" class="loginPasswordInput" placeholder="Password">
+  <?php echo form::open('login/', array('id' => 'userpass_form')); ?>
+        <input type="hidden" name="action" value="signin" />
+                        <input type="text" class="loginTextInput" placeholder="Email" name="username"><input type="password" class="loginPasswordInput" placeholder="Password" name="password">
                         <input type="submit" name="submit" value="Login" class="introModalLoginButton">
                         <a href="#action" class="introModalLoginLabel forgotPasswordLink">Forgot your password?</a>
-
+        <?php echo form::close(); ?>
                       </div>
                       <br clear="all">
 

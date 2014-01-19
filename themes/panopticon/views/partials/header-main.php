@@ -63,7 +63,7 @@
             <li class="panel-submit"><a href="#submit" style="width:130px;text-align:center;">Add A Future</a></li><li class="panel-pins"><a href="#pins">All Futures</a>
   
               <ul class="allFuturesDropdown">
-                <li class="panel-recentFutures"><a href="#recentFutures">Recent Futures</a></li>  
+                <li class="panel-recentFutures"><a href="#recentFutures">Latest Futures</a></li>  
                 <li class="panel-myFutures"><a href="#myFutures">My Futures</a></li> 
                 <li class="panel-topFutures"><a href="#topFutures">Top Futures</a></li> 
               </ul>
