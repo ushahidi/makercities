@@ -284,7 +284,7 @@ jQuery(document).ready(function($) {
 			var code = (e.keyCode ? e.keyCode : e.which);
 			if(code == 13) { //Enter keycode
 				document.location.hash = 'search';
-				geoCodeWithZoom(6);
+				geoCodeWithZoom(4);
 				return false;
 			}
 	});
@@ -405,7 +405,7 @@ function closePanel() {
  * Google GeoCoder
  */
 function geoCode(){
-  geoCodeWithZoom(6);
+  geoCodeWithZoom(4);
 }
 
 function geoCodeWithZoom(zoom) {
@@ -458,7 +458,7 @@ function geoCodeWithZoom(zoom) {
 }
 
 function zoomToLongLat(longitude, latitude) {
-  zoomToLongLatZoom(longitude, latitude, 14);
+  zoomToLongLatZoom(longitude, latitude, 4);
 }
 
 function zoomToLongLatZoom(longitude, latitude, zoom) {
