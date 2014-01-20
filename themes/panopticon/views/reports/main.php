@@ -5,7 +5,7 @@
 			<?php if (isset($_GET['z'])) : ?>
 			<h1><?php echo $total_reports . ' ' . Kohana::lang('ui_main.reports'); ?></h1>
 			<?php else: ?>
-			<h1><?php echo Kohana::lang('ui_main.showing_futures'); ?></h1>
+			<h1><?php echo $page_title; ?></h1>
 		<?php endif; ?>
 
 			

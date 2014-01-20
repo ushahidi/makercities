@@ -122,20 +122,20 @@ jQuery(document).ready(function($) {
 
 		lastPanel = $('#panel-tabs li.active').removeClass('active');
 		if (lastPanel.length) lastPanel = lastPanel.attr('class').match(/panel-(\w+)/);
-		panelName = li.attr('class').match(/panel-(\w+)/);
+		panelName = $(this).attr('href').replace('#', '');
 
-		if (panelName[1] == 'submit') {
+		if (panelName == 'submit') {
 			if (map && window.reports.map) {
 				window.reports.map.setCenter([map._olMap.center.lon, map._olMap.center.lat], map._olMap.zoom);
 				window.setTimeout(function() { window.reports.map.baseLayer.redraw(); }, 500);
 			}
-		} else if (lastPanel[1] == 'submit') {
+		} else if (lastPanel == 'submit') {
 			if (window.reports.map) map._olMap.setCenter([window.reports.map.center.lon, window.reports.map.center.lat], window.reports.map.zoom);
 		}
 
-		$('#' + panelName[1] + '-panel').show(); // Show clicked
-		managePanelControls(panelName[1]);
-		$('#panel-tabs li.panel-' + panelName[1]).addClass('active');
+		$('#' + panelName + '-panel').show(); // Show clicked
+		managePanelControls(panelName);
+		$('#panel-tabs li.panel-' + panelName).addClass('active');
 
 	});
 

@@ -42,7 +42,8 @@ class Reports_Controller extends Main_Controller {
 		$this->template->content = new View('reports/main');
 		$this->themes->js = new View('reports/reports_js');
 
-		$this->template->header->page_title .= Kohana::lang('ui_main.reports').Kohana::config('settings.title_delimiter');
+		$this->template->header->page_title .= Kohana::lang('ui_main.showing_futures').Kohana::config('settings.title_delimiter');
+		$this->template->content->page_title = Kohana::lang('ui_main.showing_futures');
 
 		// Store any exisitng URL parameters
 		$this->themes->js->url_params = json_encode($_GET);
@@ -1571,6 +1572,7 @@ class Reports_Controller extends Main_Controller {
 		$this->themes->js = new View('reports/reports_js');
 
 		$this->template->header->page_title .= Kohana::lang('ui_main.reports').Kohana::config('settings.title_delimiter');
+		$this->template->content->page_title = 'Top Futures';
 
 		// Store any exisitng URL parameters
 		$this->themes->js->url_params = json_encode($_GET);
@@ -1707,7 +1709,8 @@ class Reports_Controller extends Main_Controller {
 		$this->template->content = new View('reports/main');
 		$this->themes->js = new View('reports/reports_js');
 
-		$this->template->header->page_title .= Kohana::lang('ui_main.reports').Kohana::config('settings.title_delimiter');
+		$this->template->content->page_title = Kohana::lang('ui_main.showing_futures').Kohana::config('settings.title_delimiter');
+		$this->template->content->page_title = Kohana::lang('ui_main.showing_futures');
 
 		// Store any exisitng URL parameters
 		$this->themes->js->url_params = json_encode($_GET);
@@ -1860,7 +1863,8 @@ class Reports_Controller extends Main_Controller {
 		$this->template->content = new View('reports/main');
 		$this->themes->js = new View('reports/reports_js');
 
-		$this->template->header->page_title .= Kohana::lang('ui_main.reports').Kohana::config('settings.title_delimiter');
+		$this->template->header->page_title .= 'My Futures'.Kohana::config('settings.title_delimiter');
+		$this->template->content->page_title = 'My Futures';
 
 		// Store any exisitng URL parameters
 		$this->themes->js->url_params = json_encode($_GET);
