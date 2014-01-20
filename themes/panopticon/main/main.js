@@ -452,8 +452,10 @@ function geoCodeWithZoom(zoom) {
 		return false;
 	}
 	else if (optionBox == 'Keyword'){
-		//console.log('you are searching by keyword');
-		$.post(siteRoot + "/reports/recentFutures", {location: searchBox});
+		// Update futures as per location name
+		reportClick(siteRoot + "/reports/?q=" + address);
+		map.updateReportFilters({ q: address});
+		
 	}
 }
 
