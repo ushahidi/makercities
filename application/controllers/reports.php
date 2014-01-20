@@ -539,6 +539,10 @@ class Reports_Controller extends Main_Controller {
 
 		foreach ($cities as $city) {
 			$i++;
+
+			// Skip cities with 0 points
+			if ($city->points == 0) continue;
+
 			?>
       <a class="city" href="<?php echo url::site();?>#city=<?php echo urlencode($city->city); ?>" title="#<?php echo $i; ?>"><span class="place">#<?php echo $i; ?> </span><span class="city-name"><?php echo $city->city; ?>:</span> <span class="points"><?php echo $city->points; ?></span></a>
     	<?php
