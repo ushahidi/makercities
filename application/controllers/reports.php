@@ -531,8 +531,10 @@ class Reports_Controller extends Main_Controller {
 	 * Output HTML for leaderboard bar
 	 */
 	public function city_leaderboard($count = 10, $asVar = false) {
-		$cities = ORM::Factory('city')->orderby('points DESC, city', 'ASC');
-		$cities = (is_numeric($count)) ? $cities->find_all($count) : $cities->find_all();
+		$cities = Database::instance()->query("SELECT c.id, city, COUNT(DISTINCT i.id) AS points FROM incident i LEFT JOIN city c ON (c.id = i.city_id) GROUP BY i.city_id");
+
+		//$cities = ORM::Factory('city')->orderby('points DESC, city', 'ASC');
+		//$cities = (is_numeric($count)) ? $cities->find_all($count) : $cities->find_all();
 		$i = 0;
 
 		if ($asVar) ob_start();
