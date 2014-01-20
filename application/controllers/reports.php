@@ -1757,7 +1757,7 @@ class Reports_Controller extends Main_Controller {
 		//."ORDER BY i.incident_date DESC LIMIT 0, ".intval(Kohana::config('settings.items_per_page')); 
 			
 		//TODO filter by $location once that logic is determined
-		if ($latitude AND $longitude)
+		if (! empty($latitude) AND !empty($longitude))
 		{
 			$query .= "AND l.latitude = ".floatval($latitude)." AND l.longitude = ".floatval($longitude)." "; 
 		}
