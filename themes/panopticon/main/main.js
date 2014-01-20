@@ -279,14 +279,11 @@ jQuery(document).ready(function($) {
 		})
 		.bind('blur', function() {
 			$(this).attr('style', '');
-		})
-		.bind('keypress', function(e) {
-			var code = (e.keyCode ? e.keyCode : e.which);
-			if(code == 13) { //Enter keycode
-				document.location.hash = 'search';
-				geoCodeWithZoom(4);
-				return false;
-			}
+		});
+	
+	$('#search-form').bind('submit', function(e) {
+			e.preventDefault();
+			geoCodeWithZoom(4);
 	});
 
 	$('#leaderboard').on('click', 'a.city', function(e) {

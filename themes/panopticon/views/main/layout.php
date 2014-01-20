@@ -1,3 +1,4 @@
+<form action="#" method="get" id="search-form">
 <input id="search-bar" type="text" maxlength="100" placeholder="Search" title="<?php echo Kohana::lang('makercities.search_box');?>" />
 <div id="myLocationZoom" title="<?php echo Kohana::lang('makercities.my_location_zoom');?>"></div>
 <div id="addingFuture" class="adding-future clearingfix"><?php echo Kohana::lang('makercities.adding_a_future'); ?></div>
@@ -8,7 +9,9 @@
   </select>
 </div>
 
-  <button class="mapSearchButton"></button>
+<button class="mapSearchButton" type="submit"></button>
+
+</form>
 
 <div id="mapFilters" class="clearingfix">
   <!-- category filters -->
