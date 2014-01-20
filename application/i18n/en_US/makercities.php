@@ -67,6 +67,7 @@ $lang = array(
   'tab_submit' => 'Add a Future',
   'tab_info' => 'Info',
   'tab_scoreboard' => 'Top Cities',
+  'submit_my_future' => 'You haven\'t submitted a future yet. Please ADD YOUR FUTURE now!',
 );
 
 $lang['intro'] = array(

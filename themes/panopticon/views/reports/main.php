@@ -12,6 +12,12 @@
 			<h2>Matching keyword: <?php echo htmlentities($_GET['q'], ENT_QUOTES, 'UTF-8'); ?></h2>
 		<?php endif; ?>
 			
+		<?php if (isset($myFutures) AND $total_reports == 0): ?>
+			<div class="submit report_row">
+				<h2 class="center"><a class="panel-submit" href="<?php echo url::site('reports/submit'); ?>" target="reports"><?php echo Kohana::lang('makercities.submit_my_future'); ?></a></h2>
+			</div>
+		<?php endif; ?>
+
 			<div id="tooltip-box">
 				<div class="tt-arrow"></div>
 				<ul class="inline-links">

@@ -285,6 +285,13 @@
 		}});
 
 		$('#info-x, #info-panel', window.top.document).removeClass('loading');
+		// Show submit panel when add button clicked
+		$('.panel-submit').click(function () {
+			$('#panel-tabs li.active', window.top.document).removeClass('active');
+			$('.panel-submit', window.top.document).addClass('active');
+			$('#panel-wrapper .panel', window.top.document).hide();
+			$('#submit-panel', window.top.document).show();
+		});
     
     setInterval("if($('.pager li a.active').html() == '1') fetchReports()", 60000);
 	}); // end document.ready

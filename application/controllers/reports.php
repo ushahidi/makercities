@@ -1866,6 +1866,11 @@ class Reports_Controller extends Main_Controller {
 		$this->template->header->page_title .= 'My Futures'.Kohana::config('settings.title_delimiter');
 		$this->template->content->page_title = 'My Futures';
 
+		if (! $this->logged_in)
+		{
+			url::redirect('reports/login');
+		}
+
 		// Store any exisitng URL parameters
 		$this->themes->js->url_params = json_encode($_GET);
 
@@ -2011,9 +2016,25 @@ class Reports_Controller extends Main_Controller {
 		$this->template->content->services = Service_Model::get_array();
 		//$this->template->content->total_reports = reports::$pagination->total_items;
 		$this->template->content->total_reports = $pagination->total_items;		
+		$this->template->content->myFutures = TRUE;
 
 		$this->template->header->header_block = $this->themes->header_block();
 		$this->template->footer->footer_block = $this->themes->footer_block();
 					
+	}
+
+	public function login()
+	{
+
+		// Cacheable Controller
+		//$this->is_cachable = TRUE;
+
+		$this->template->header->this_page = 'reports';
+		$this->template->content = new View('reports/login');
+		$this->themes->js = new View('reports/reports_js');
+
+		$this->template->header->page_title .= 'My Futures'.Kohana::config('settings.title_delimiter');
+		$this->template->content->page_title = 'My Futures';
+
 	}
 }
