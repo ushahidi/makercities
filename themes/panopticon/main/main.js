@@ -427,13 +427,15 @@ function geoCodeWithZoom(zoom) {
 			function(data){
 				if (data.status == 'success'){
 					// create a new lat/lon object
-					zoomToLongLatZoom(data.longitude, data.latitude, zoom);
+					zoomToLongLatZoom(data.longitude, data.latitude, 9 /* zoom */);
 
 					// Update form values
 					searchBox.val(data.location_name).trigger('update');
 
-					//Update futures as per location name
-					$.post(siteRoot + "/reports/recentFutures", {location: data.location_name});
+					//reportClick(siteRoot + "/reports/?");
+					var extent = map._olMap.getExtent().transform(new OpenLayers.Projection("EPSG:900913"), new OpenLayers.Projection("EPSG:4326"));
+					reportClick(siteRoot + "/reports/?ne="+extent.right+","+extent.top+"&sw="+extent.left+","+extent.bottom);
+
 					// Exit if this is a City click
 					if (!document.location.hash.match(/^#city=/i))
 						document.location.hash = 'search=' + encodeURIComponent(data.location_name).replace(/%20/g, '+');
@@ -460,7 +462,7 @@ function geoCodeWithZoom(zoom) {
 }
 
 function zoomToLongLat(longitude, latitude) {
-	zoomToLongLatZoom(longitude, latitude, 4);
+	zoomToLongLatZoom(longitude, latitude, 9);
 }
 
 function zoomToLongLatZoom(longitude, latitude, zoom) {
