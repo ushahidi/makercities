@@ -8,6 +8,9 @@
 			<h1><?php echo $page_title; ?></h1>
 		<?php endif; ?>
 
+		<?php if (isset($_GET['q'])): ?>
+			<h2>Matching keyword: <?php echo htmlentities($_GET['q'], ENT_QUOTES, 'UTF-8'); ?></h2>
+		<?php endif; ?>
 			
 			<div id="tooltip-box">
 				<div class="tt-arrow"></div>
