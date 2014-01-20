@@ -116,6 +116,18 @@ div#tagline {
   margin-top:5px;
 }
 
+#currentChallenge a {
+  height:100%;
+  line-height:46px;
+  color: #000;
+  text-transform: none;
+}
+
+#currentChallenge a:hover {
+  color: #fc56b8;
+}
+
+
 #game-controls {
   position:absolute;
   bottom:0;

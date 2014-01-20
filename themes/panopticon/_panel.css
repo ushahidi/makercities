@@ -1086,8 +1086,7 @@ body.page-members-profile .row h4 {
 }
 
 #progress .progress-circle.level3 .arrow_box {
-	left: 10px;
-	margin-top: -5px;
+	left: -250px;
 	width: 240px;
 	height: auto;
 }
