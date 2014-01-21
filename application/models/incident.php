@@ -259,7 +259,7 @@ class Incident_Model extends ORM {
 		// Normal query
 		if (! $count)
 		{
-			$sql = 'SELECT DISTINCT i.id incident_id, i.city_id, i.incident_title, i.incident_description, i.incident_date, i.incident_mode, i.incident_active, '
+			$sql = 'SELECT DISTINCT i.id incident_id, i.city_id, i.incident_title, i.incident_description, i.incident_date, i.incident_mode, i.incident_active, i.user_id, '
 				. 'i.incident_verified, i.location_id, i.incident_phase, i.incident_stats, l.country_id, l.location_name, l.latitude, l.longitude, c.id as category_id, c.category_color, c.category_image, c.category_image_thumb ';
 		}
 		// Count query

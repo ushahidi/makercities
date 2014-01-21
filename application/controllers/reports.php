@@ -1753,7 +1753,7 @@ class Reports_Controller extends Main_Controller {
 		$l = Kohana::config('locale.language.0');
 		
 		$query = "SELECT DISTINCT i.id incident_id, i.city_id, i.incident_title, i.incident_description, " 
-		."i.incident_date, i.incident_mode, i.incident_active, i.incident_verified, " 
+		."i.incident_date, i.incident_mode, i.incident_active, i.incident_verified, i.user_id, " 
 		."i.location_id, i.incident_phase, i.incident_stats, l.country_id, " 
 		."l.location_name, l.latitude, l.longitude, " 
 		."c.id as category_id, c.category_color, c.category_image, c.category_image_thumb "
@@ -1927,7 +1927,7 @@ class Reports_Controller extends Main_Controller {
 		}
 					
 		$query = "select distinct * from(
-		SELECT i.id as incident_id,i.*, l.location_name  
+		SELECT i.id as incident_id, i.*, l.location_name
 		FROM incident i
 		LEFT JOIN location l on (l.id = i.location_id)
 		WHERE i.user_id =".$logged_in_id." 

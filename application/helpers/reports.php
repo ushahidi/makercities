@@ -997,6 +997,8 @@ class reports_Core {
 			$location_name = $incident->location_name;
 			$incident_verified = $incident->incident_verified;
 
+			$user = User_Model::get_user_by_id($incident->user_id);
+
 			if ($incident_verified)
 			{
 				$incident_verified = '<span class="r_verified">'.Kohana::lang('ui_main.verified').'</span>';
@@ -1093,7 +1095,7 @@ class reports_Core {
 							?>
 							</h3>
 						<?php /* <p class="r_date r-3 bottom-cap"><?php echo $incident_date; ?></p> */ ?>
-						<div class="r_city_username"><b><?php echo reports::get_city_name($incident->city_id); ?></b><span>Submitted by user120935</span></div>
+						<div class="r_city_username"><b><?php echo reports::get_city_name($incident->city_id); ?></b><span>Submitted by <?php echo html::specialchars($user->name); ?> </span></div>
 						<div class="r_description"> <?php echo $incident_description; ?>  
 						  <?php /* <a class="btn-show btn-more" href="#incident_<?php echo $incident_id ?>"><?php echo Kohana::lang('ui_main.more_information'); ?> &raquo;</a> 
 						  <a class="btn-show btn-less" href="#incident_<?php echo $incident_id ?>">&laquo; <?php echo Kohana::lang('ui_main.less_information'); ?></a> */ ?>
