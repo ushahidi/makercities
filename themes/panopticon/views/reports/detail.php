@@ -253,10 +253,14 @@ if ($logged_in) {
 			if ($active_allowed) $comment_class_names[] = 'active-allowed';
 			$comment_class_names = (count($comment_class_names) > 0) ? ' class="' . implode(' ', $comment_class_names) . '"' : '';
 		
-			if(!$active_allowed) :
+			if(($phase == 0 || $phase == 1 ) && !$logged_in) :
 		?>
 
-<p style="color: #fff800;">Please log in to support this future!</p>
+		<p style="color: #fff800;">Please log in to support this future!</p>
+
+		<?php elseif($phase == 0 || $phase == 1 ) : ?>
+
+		<!-- feedback form removed from first stage -->
 
 		<?php else : ?>
 
