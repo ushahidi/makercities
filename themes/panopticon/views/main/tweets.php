@@ -1,9 +1,8 @@
 <div id="tweets">
   <div class="title">Just Breaking</div>
   <div class="tweets">
-    <a href="https://twitter.com/iftf/status/375730298559799296" target="_blank">"We are shifting from R&D labs to R&D communities." @iftf's David Pescovitz http://bit.ly/17CnLSM  #MakerCities</a>
-    <a href="https://twitter.com/iftf/status/375648007321948162" target="_blank">"@gquaggiotto: Like how @iftf Maker City 2025 future game combines scenarios with prototypes, networks http://bit.ly/14rKgWB " #MakerCities</a>
-    <a href="https://twitter.com/iftf/status/370666801148862464" target="_blank">How will your city be a Maker City in 2025? Tell us at http://bit.ly/17not45  #MakerCities</a>
+    <a href="http://blog.makercities.net/synchronicity-challenge-2/" target="_blank">What if your city was a synchroniCity in 2025? #makercities</a>
+   
   </div>
   <a class="iftf" href="http://www.iftf.org" target="_blank">@IFTF</a>
 </div>
