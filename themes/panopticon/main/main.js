@@ -170,6 +170,10 @@ jQuery(document).ready(function($) {
 		document.location.hash = '';
 	});
 
+	$("#userpass_form").submit(function() {
+		$.cookie('hide_intro', '1', { expires: 1000 });
+	});
+
 	$('#introTourLink').click(function() {
 		$('#intro').fadeOut('fast');
 	});
