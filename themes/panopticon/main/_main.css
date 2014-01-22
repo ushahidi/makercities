@@ -124,7 +124,8 @@ div#tagline {
 }
 
 #currentChallenge a:hover {
-  color: #fc56b8;
+  color: #ec008c;
+  text-decoration: none;
 }
 
 
