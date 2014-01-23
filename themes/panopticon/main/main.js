@@ -170,8 +170,11 @@ jQuery(document).ready(function($) {
 		document.location.hash = '';
 	});
 
-	$("#userpass_form").submit(function() {
+	$(".introModalLoginButton").click(function() {
+		$('#intro').fadeOut('fast');
+		$('#intro').hide();
 		$.cookie('hide_intro', '1', { expires: 1000 });
+		document.location.hash = '';
 	});
 
 	$('#introTourLink').click(function() {
