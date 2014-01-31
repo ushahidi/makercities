@@ -367,6 +367,30 @@ class Incident_Model extends ORM {
 	}
 
 	/**
+	 * Gets the website links for an incident
+	 * @param int $incident_id Database ID of the incident
+	 * @return mixed FALSE if the incident id is non-existent, ORM_Iterator if it exists
+	 */
+	public static function get_links($incident_id)
+	{
+		if (self::is_valid_incident($incident_id))
+		{
+			$where = array(
+				'link.incident_id' => $incident_id
+			);
+
+			// Fetch the links
+			return ORM::factory('link')
+					->where($where)
+					->find_all();
+		}
+		else
+		{
+			return FALSE;
+		}
+	}
+
+	/**
 	 * Given an incident, gets the list of incidents within a specified radius
 	 *
 	 * @param int $incident_id Database ID of the incident to be used to fetch the neighbours

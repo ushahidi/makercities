@@ -25,7 +25,7 @@
 			    ->from('feed_item')
 				->orderby('item_date', 'desc')->get()->as_array();
 			?>
-		  <div id="currentChallengeName"><a href="http://blog.makercities.net/synchronicity-challenge/">Challenge 1: SynchroniCity</a></div>			  
+		  <div id="currentChallengeName"><a href="http://blog.makercities.net/synchronicity-challenge/" target="_blank">Challenge 1: SynchroniCity</a></div>			  
         </div>
         <!-- / currentChallenge -->
 

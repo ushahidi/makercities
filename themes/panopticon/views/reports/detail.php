@@ -183,9 +183,11 @@ if ($logged_in) {
 			<p>Create a prototype- a concept image, comic strip, map, video interview, arduino project, or any kind of made media or object that helps other players better understand this idea!  Host your project on Flickr, Facebook, YouTube, Vimeo, Instagram, or Instructables, and share the link here!  Submissions will be highlighted on the Maker Cities blog, on Twitter, and more.</p>
 
 			<div id="media-content">
-				<div class="item file">
-					<input type="text" name="protoype-link" value="Paste your URL here" style="width" />
-					<button class="pm">Add prototype</button>
+				<div class="item file">					
+					<?php print form::open(NULL, array('enctype' => 'multipart/form-data', 'id' => 'reportForm')); ?>					
+						<input type="text" name="protoype-link" value="Paste your URL here" style="width" />
+						<button class="pm" type="submit">Add prototype</button>
+					<?php print form::close(); ?>					
 				</div>			
 			</div>
 
