@@ -441,6 +441,17 @@ LOCK TABLES `cluster` WRITE;
 /*!40000 ALTER TABLE `cluster` ENABLE KEYS */;
 UNLOCK TABLES;
 
+DROP TABLE IF EXISTS `link`;
+CREATE TABLE `link` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned DEFAULT '0',
+  `incident_id` bigint(20) unsigned DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `incident_id` (`incident_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=107 DEFAULT CHARSET=utf8 COMMENT='Stores website links (video or photo) for a report';
+
 --
 -- Table structure for table `comment`
 --

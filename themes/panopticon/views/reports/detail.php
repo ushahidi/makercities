@@ -179,25 +179,15 @@ if ($logged_in) {
 
 		<div class="description">
 
-			<h3>Make a Prototype!</h3>
+			<h3>Make a Protoype!</h3>
 			<p>Create a prototype- a concept image, comic strip, map, video interview, arduino project, or any kind of made media or object that helps other players better understand this idea!  Host your project on Flickr, Facebook, YouTube, Vimeo, Instagram, or Instructables, and share the link here!  Submissions will be highlighted on the Maker Cities blog, on Twitter, and more.</p>
-			<?php foreach ($prototypes as $prototype)
-			{ 
-			?>
-				<div class="comment">
-				<a href="<?php echo($prototype->url); ?>" target="_blank"><?php echo($prototype->url); ?></a>
-				</div>
-			<?php
-			}
-			?>
-			
+
 			<div id="media-content">
 				<div class="item file">					
-					<?php print form::open('reports/prototype', array('enctype' => 'multipart/form-data', 'id' => 'reportPrototypeForm')); ?>					
-						<input type="hidden" id="incident_id" name="incident_id" value="<?php echo $incident_id; ?>" />
-						<input type="text" name="prototype_url" value="Paste your URL here" style="width" />
-						<button class="pm" type="submit">Add prototype</button>
-					<?php print form::close(); ?>
+					<?php print form::open(NULL, array('enctype' => 'multipart/form-data', 'id' => 'reportForm')); ?>					
+						<input type="text" name="protoype-link" value="Paste your URL here" style="width" />
+						<button class="pm" type="submit"></button>
+					<?php print form::close(); ?>					
 				</div>			
 			</div>
 
@@ -214,8 +204,7 @@ if ($logged_in) {
 				strlen($custom_forms)   > 0 ||
 				$features_count
 		    	) : ?>
-
-			<div class="media">
+		<div class="media">
 			<h3><?php echo Kohana::lang('ui_main.media'); ?></h3>
 
 			<?php
