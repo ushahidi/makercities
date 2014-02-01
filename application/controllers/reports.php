@@ -940,6 +940,12 @@ class Reports_Controller extends Main_Controller {
 			$this->template->content->incident_category = $incident->incident_category;
 			$this->template->content->phase_num = $incident->incident_phase;
 
+			// Retrieve links to prototypes
+			$prototypes = ORM::factory('link')
+				->where('incident_id',$id)
+				->find_all();
+			$this->template->content->prototypes = $prototypes;
+			
 			// Retrieve Media
 			$incident_news = array();
 			$incident_video = array();
@@ -1419,6 +1425,51 @@ class Reports_Controller extends Main_Controller {
 			return 0;
 		}
 	}
+	
+		/**
+	* Save newly added dynamic categories
+	*/
+	public function prototype()
+	{
+		$this->auto_render = FALSE;
+		$this->template = "";
+
+		// Check, has the form been submitted, if so, setup validation
+		if ($_POST)
+		{
+			// Instantiate Validation, use $post, so we don't overwrite $_POST fields with our own things
+			$post = Validation::factory($_POST);
+
+			 //	Add some filters
+			$post->pre_filter('trim', TRUE);
+
+			// Add some rules, the input field, followed by a list of checks, carried out in order
+			$post->add_rules('prototype_url','required', 'length[3,200]');
+
+			// Test to see if things passed the rule checks
+			if ($post->validate())
+			{
+				// SAVE prototype URL
+				$prototype_link = new Link_Model();
+				$prototype_link->user_id = ($this->user)?$this->user->id:0;
+				$prototype_link->incident_id = $post->incident_id;
+				$prototype_link->url = $post->prototype_url;
+				$prototype_link->save();
+				$form_saved = TRUE;
+
+				echo json_encode(array("status"=>"saved", "id"=>$prototype_link->id));
+			}
+			else
+			{
+				echo json_encode(array("status"=>"error"));
+			}
+		}
+		else
+		{
+			echo json_encode(array("status"=>"error"));
+		}
+	}
+	
 
 	/**
 	 * Validates a numeric array. All items contained in the array must be numbers or numeric strings

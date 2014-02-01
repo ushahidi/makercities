@@ -1240,7 +1240,7 @@ class Reports_Controller extends Admin_Controller {
 			}
 		}
 	}
-
+	
 	/**
 	* Save newly added dynamic categories
 	*/

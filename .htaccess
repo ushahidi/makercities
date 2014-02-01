@@ -4,7 +4,7 @@
 	RewriteEngine On
 
 	# Installation directory
-	RewriteBase /
+	RewriteBase /makercities
 
 	# Protect application and system files from being viewed
 	RewriteRule ^(application|modules|system|tests|sql) - [F,L]
