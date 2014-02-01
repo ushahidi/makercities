@@ -186,7 +186,7 @@ if ($logged_in) {
 				<div class="item file">					
 					<?php print form::open(NULL, array('enctype' => 'multipart/form-data', 'id' => 'reportForm')); ?>					
 						<input type="text" name="protoype-link" value="Paste your URL here" style="width" />
-						<button class="pm" type="submit">Add prototype</button>
+						<button class="pm" type="submit"></button>
 					<?php print form::close(); ?>					
 				</div>			
 			</div>
