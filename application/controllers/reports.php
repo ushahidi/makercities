@@ -617,6 +617,31 @@ class Reports_Controller extends Main_Controller {
 
 				// Add some filters
 				$post->pre_filter('trim', TRUE);
+				
+				//Ungodly hack to get prototype list accepted
+				if (isset($post->prototype_url))
+				{
+					// Add some rules, the input field, followed by a list of checks, carried out in order
+					//$post->add_rules('prototype_url','required', 'length[3,200]');
+
+					// Test to see if things passed the rule checks
+					//if ($post->validate())
+					//{
+						// SAVE prototype URL
+						$prototype_link = new Link_Model();
+						$prototype_link->user_id = ($this->user)?$this->user->id:0;
+						$prototype_link->incident_id = $id;
+						$prototype_link->url = $post->prototype_url;
+						$prototype_link->save();
+						$form_saved = TRUE;
+
+						echo json_encode(array("status"=>"saved", "id"=>$prototype_link->id));
+					//}
+				
+				}
+				else
+				{
+				
 
 				// Add some rules, the input field, followed by a list of checks, carried out in order
 				if ( ! $this->user)
@@ -782,6 +807,8 @@ class Reports_Controller extends Main_Controller {
 					$errors = arr::overwrite($errors, $post->errors('comments'));
 					$form_error = TRUE;
 				}
+				
+			} // end if_prototype
 
 			} // end if _POST
 
