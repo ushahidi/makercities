@@ -627,11 +627,19 @@ class Reports_Controller extends Main_Controller {
 					// Test to see if things passed the rule checks
 					//if ($post->validate())
 					//{
+					
+						//Correct prototype url, if needed
+						$prototype_url = $post->prototype_url;
+						if (strpos($post->prototype_url, "://") == FALSE) 
+						{
+							$prototype_url = 'http://'.$prototype_url;
+						}
+						
 						// SAVE prototype URL
 						$prototype_link = new Link_Model();
 						$prototype_link->user_id = ($this->user)?$this->user->id:0;
 						$prototype_link->incident_id = $id;
-						$prototype_link->url = $post->prototype_url;
+						$prototype_link->url = $prototype_url;
 						$prototype_link->save();
 						$form_saved = TRUE;
 
