@@ -179,7 +179,15 @@ if ($logged_in) {
 
 		<div class="description">
 
-			<h3>Make a Protoype!</h3>
+			<h3>Make a Prototype!</h3>
+			
+			<?php
+			if( !$logged_in)
+			{
+				print("<span style='color:#ffdb00;'>Please <a href='/login/?newaccount' target='_blank' style='color:#ffdb00;text-decoration:underline;'>log in</a> to add your prototype here!</span>");
+			}
+			?>
+			
 			<p>Create a prototype- a concept image, comic strip, map, video interview, arduino project, or any kind of made media or object that helps other players better understand this idea!  Host your project on Flickr, Facebook, YouTube, Vimeo, Instagram, or Instructables, and share the link here!  Submissions will be highlighted on the Maker Cities blog, on Twitter, and more.</p>
 			<?php foreach ($prototypes as $prototype)
 			{ 
@@ -191,6 +199,10 @@ if ($logged_in) {
 			}
 			?>
 
+			<?php
+			if( $logged_in)
+			{
+			?>
 			<div id="media-content">
 				<div class="item file">					
 					<?php print form::open(NULL, array('enctype' => 'multipart/form-data', 'id' => 'reportForm')); ?>					
@@ -199,7 +211,9 @@ if ($logged_in) {
 					<?php print form::close(); ?>					
 				</div>			
 			</div>
-
+			<?php
+			}
+			?>
 		</div>
 
 		<?php endif;?>
