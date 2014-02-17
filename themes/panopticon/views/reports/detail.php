@@ -184,7 +184,7 @@ if ($logged_in) {
 			<?php
 			if( !$logged_in)
 			{
-				print("<span style='color:#ffdb00;'>Please <a href='/login/?newaccount' target='_blank' style='color:#ffdb00;text-decoration:underline;'>log in</a> to add your prototype here!</span>");
+				print("<span style='color:#ffdb00;'>Please <a href='login/?newaccount' target='_blank' style='color:#ffdb00;text-decoration:underline;'>log in</a> to add your prototype here!</span>");
 			}
 			?>
 			
@@ -193,6 +193,12 @@ if ($logged_in) {
 			{ 
 			?>
 				<div class="comment">
+				<?php 
+				if ($prototype->thumbnail != NULL)
+				{
+				  echo('<img src="' . url::convert_uploaded_to_abs($prototype->thumbnail) . '">'); 
+				}
+				?>
 				<a href="<?php echo($prototype->url); ?>" target="_blank"><?php echo($prototype->url); ?></a>
 				</div>
 			<?php

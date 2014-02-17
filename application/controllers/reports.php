@@ -299,7 +299,62 @@ class Reports_Controller extends Main_Controller {
 		// Return
 		return $report_listing;
 	}
+	
+	
+	/**
+	 * Resize a thumbnail image and save it to file
+	*/
+	private function _save_thumbnail_image($imagedata)
+	{
+		$filename = "thumbnail".time().".jpg";
+		$directory = Kohana::config('upload.directory', TRUE);
+		//Save image data to file
+		$file  = fopen($directory.'/'.$filename, 'w+'); 
+		fputs($file, $imagedata); 
+		fclose($file); 
+		
+		return $filename;
+	}
 
+	/**
+	 * Scrape the default thumbnail image from a youtube address
+	 */
+	private function _get_youtube_thumbnail($url)
+	{
+		$thumbnail_address = NULL;
+		parse_str( parse_url( $url, PHP_URL_QUERY ), $url_params );
+		if (array_key_exists('v', $url_params))
+		{
+			$url = "http://gdata.youtube.com/feeds/api/videos/".$url_params['v']."?v=2&alt=jsonc";
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			$json = '';
+			if( ($json = curl_exec($ch) ) !== false)
+			{
+				$json_data = json_decode($json);
+				if (!array_key_exists('error', $json_data))
+				{
+					//Grab data, save it locally
+					$thumbnail_url = $json_data->data->thumbnail->sqDefault;
+					$thumbnail = file_get_contents($thumbnail_url);
+					$thumbnail_address = $this->_save_thumbnail_image($thumbnail);
+					unset($thumbnail);
+				}
+			}
+			curl_close($ch);
+		}
+		
+		return $thumbnail_address;
+	}
+	
+	/**
+	 * Scrape the default thumbnail image from a flickr address
+	 */
+	private function _get_flickr_thumbnail($path)
+	{
+	}
+
+	
 	public function fetch_reports()
 	{
 		$this->template = "";
@@ -635,11 +690,34 @@ class Reports_Controller extends Main_Controller {
 							$prototype_url = 'http://'.$prototype_url;
 						}
 						
+						//Find thumbnail for Flickr or youtube images
+						$thumbnail = Null;
+						$spliturl = parse_url($prototype_url);
+						$urlhost = $spliturl['host'];
+						preg_match("/^(www\.){0,1}flickr.com/", $urlhost, $preg_result);
+						if ($preg_result <> NULL)
+						{
+							//We have a flickr site - grab the thumbnail and run
+							
+						}
+						else
+						{
+							preg_match("/^(www\.){0,1}youtube.com/", $urlhost, $preg_result);
+							if ($preg_result <> NULL)
+							{
+								//We have a youtube site - grab the thumbnail and run
+								$thumbnail = $this->_get_youtube_thumbnail($prototype_url);
+								//echo '<img src="' . url::convert_uploaded_to_abs($thumbnail_address) . '">';
+							}
+						}
+						
+						
 						// SAVE prototype URL
 						$prototype_link = new Link_Model();
 						$prototype_link->user_id = ($this->user)?$this->user->id:0;
 						$prototype_link->incident_id = $id;
 						$prototype_link->url = $prototype_url;
+						$prototype_link->thumbnail = $thumbnail;
 						$prototype_link->save();
 						$form_saved = TRUE;
 
