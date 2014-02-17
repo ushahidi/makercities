@@ -629,10 +629,6 @@ div.comment-block {
 	        transition: border 0.2s ease-out;
 }
 
-.comment:hover {
-	border-top-color: #888 !important;
-}
-
 .comment:before {
 	content: '';
 	display: none;
@@ -640,6 +636,13 @@ div.comment-block {
 	height: 64px;
 	float:left;
 	background-position: 0 0 !important;
+}
+
+.comment img {
+	display:block;
+	width:150px;
+	height: auto;
+	margin-bottom: 10px;
 }
 
 .comment .meta {
