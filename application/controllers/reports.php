@@ -350,8 +350,36 @@ class Reports_Controller extends Main_Controller {
 	/**
 	 * Scrape the default thumbnail image from a flickr address
 	 */
-	private function _get_flickr_thumbnail($path)
+	private function _get_flickr_thumbnail($url)
 	{
+		$thumbnail_address = NULL;
+		parse_str( parse_url( $url, PHP_URL_QUERY ), $url_params );
+
+    $url_params = parse_url($url, PHP_URL_PATH);
+    $param_list = preg_split("/\//", $url_params);
+    if (($param_list[1] == "photos") and (sizeof($param_list) > 2))
+    {
+      $photo_id = $param_list[3];
+	  	include Kohana::find_file('libraries/phpflickr','phpFlickr');
+			$flickrapikey = Kohana::config('settings.flickrapikey');
+			$f = new phpFlickr($flickrapikey);
+			$photosizes = $f->photos_getSizes($photo_id);
+			$thumbnail_url = NULL;
+			foreach ($photosizes as $photo)
+			{
+				if ($photo['label'] == "Thumbnail")
+				{
+					//Grab data, save it locally
+					$thumbnail_url = $photo['source'];
+					$thumbnail = file_get_contents($thumbnail_url);
+					$thumbnail_address = $this->_save_thumbnail_image($thumbnail);
+					unset($thumbnail);
+					break;
+				}
+			}
+		}
+		
+		return $thumbnail_address;
 	}
 
 	
@@ -698,7 +726,8 @@ class Reports_Controller extends Main_Controller {
 						if ($preg_result <> NULL)
 						{
 							//We have a flickr site - grab the thumbnail and run
-							
+						  $thumbnail = $this->_get_flickr_thumbnail($prototype_url);
+							//echo '<img src="' . url::convert_uploaded_to_abs($thumbnail) . '">';							
 						}
 						else
 						{
@@ -707,7 +736,7 @@ class Reports_Controller extends Main_Controller {
 							{
 								//We have a youtube site - grab the thumbnail and run
 								$thumbnail = $this->_get_youtube_thumbnail($prototype_url);
-								//echo '<img src="' . url::convert_uploaded_to_abs($thumbnail_address) . '">';
+								//echo '<img src="' . url::convert_uploaded_to_abs($thumbnail) . '">';
 							}
 						}
 						
@@ -721,7 +750,7 @@ class Reports_Controller extends Main_Controller {
 						$prototype_link->save();
 						$form_saved = TRUE;
 
-						echo json_encode(array("status"=>"saved", "id"=>$prototype_link->id));
+						//echo json_encode(array("status"=>"saved", "id"=>$prototype_link->id)); //SJF: bug?
 					//}
 				
 				}
