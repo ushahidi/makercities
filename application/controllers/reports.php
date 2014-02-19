@@ -365,16 +365,19 @@ class Reports_Controller extends Main_Controller {
 			$f = new phpFlickr($flickrapikey);
 			$photosizes = $f->photos_getSizes($photo_id);
 			$thumbnail_url = NULL;
-			foreach ($photosizes as $photo)
+			if ($photosizes <> NULL)
 			{
-				if ($photo['label'] == "Thumbnail")
+				foreach ($photosizes as $photo)
 				{
-					//Grab data, save it locally
-					$thumbnail_url = $photo['source'];
-					$thumbnail = file_get_contents($thumbnail_url);
-					$thumbnail_address = $this->_save_thumbnail_image($thumbnail);
-					unset($thumbnail);
-					break;
+					if ($photo['label'] == "Thumbnail")
+					{
+						//Grab data, save it locally
+						$thumbnail_url = $photo['source'];
+						$thumbnail = file_get_contents($thumbnail_url);
+						$thumbnail_address = $this->_save_thumbnail_image($thumbnail);
+						unset($thumbnail);
+						break;
+					}
 				}
 			}
 		}
