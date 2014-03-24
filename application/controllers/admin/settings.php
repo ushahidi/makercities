@@ -73,7 +73,8 @@ class Settings_Controller extends Admin_Controller {
 			'checkins' => '',
 			'google_analytics' => '',
 			'twitter_hashtags' => '',
-			'api_akismet' => ''
+			'api_akismet' => '',
+			'flickrapikey' => ''			
 		);
 		//	Copy the form as errors, so the errors will be stored with keys
 		//	corresponding to the form field names
@@ -119,6 +120,7 @@ class Settings_Controller extends Admin_Controller {
 			$post->add_rules('google_analytics','length[0,20]');
 			$post->add_rules('twitter_hashtags','length[0,500]');
 			$post->add_rules('api_akismet','length[0,100]', 'alpha_numeric');
+			$post->add_rules('flickrapikey','length[0,100]', 'alpha_numeric');			
 
 			// Add rules for file upload
 			$files = Validation::factory($_FILES);
@@ -271,7 +273,8 @@ class Settings_Controller extends Admin_Controller {
 				'checkins' => $settings['checkins'],
 				'google_analytics' => $settings['google_analytics'],
 				'twitter_hashtags' => $settings['twitter_hashtags'],
-				'api_akismet' => $settings['api_akismet']
+				'api_akismet' => $settings['api_akismet'],
+				'flickrapikey' => $settings['flickrapikey']				
 			);
 		}
 

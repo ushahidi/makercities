@@ -95,6 +95,10 @@ $lang = array(
 		'app_id' => 'Facebook App ID',
 		'app_secret' => 'Facebook App Secret',
 	) ,
+	'flickrapikey' => array(
+		'alpha_numeric' => 'The Flickr API Key field does not appear to contain a valid value.',
+		'length' => 'The Flickr API Key field does not appear to contain a valid value.',
+	) ,	
 	'google_analytics' => array(
 		'length' => 'The Google Analytics field must contain a valid Web Property ID in the format UA-XXXXX-XX.',
 	) ,
@@ -150,6 +154,7 @@ $lang = array(
 		'email_alerts' => 'Alerts Email Address',
 		'email_notice' => '<span>In order to receive reports by email, please configure your email account settings.</span>',
 		'email_site' => 'Site Email Address',
+		'flickrapikey' => 'Flickr API Key',		
 		'google_analytics' => 'Google Analytics',
 		'google_analytics_example' => 'Web Property ID - Format: UA-XXXXX-XX',
 		'items_per_page' => 'Items Per Page - Front End',

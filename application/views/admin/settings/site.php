@@ -216,6 +216,10 @@
 							<?php echo Kohana::lang('settings.site.kismet_notice');?>.
 							<?php print form::input('api_akismet', $form['api_akismet'], ' class="text"'); ?>
 						</div>
+						<div class="row">
+							<h4><?php echo Kohana::lang('settings.site.flickrapikey');?></h4>
+							<?php print form::input('flickrapikey', $form['flickrapikey'], ' class="text"'); ?>
+						</div>						
 					</div>
 
 					<div class="simple_border"></div>
